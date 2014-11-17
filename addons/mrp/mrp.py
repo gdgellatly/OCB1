@@ -219,7 +219,7 @@ class mrp_bom(osv.osv):
         'routing_id': fields.many2one('mrp.routing', 'Routing', help="The list of operations (list of work centers) to produce the finished product. The routing is mainly used to compute work center costs during operations and to plan future loads on work centers based on production planning."),
         'property_ids': fields.many2many('mrp.property', 'mrp_bom_property_rel', 'bom_id','property_id', 'Properties'),
         'child_complete_ids': fields.function(_child_compute, relation='mrp.bom', string="BoM Hierarchy", type='many2many'),
-        'company_id': fields.many2one('res.company','Company',required=True),
+        'company_id': fields.many2one('res.company','Company',required=False),
     }
     _defaults = {
         'active': lambda *a: 1,
@@ -227,7 +227,6 @@ class mrp_bom(osv.osv):
         'product_qty': lambda *a: 1.0,
         'product_rounding': lambda *a: 0.0,
         'type': lambda *a: 'normal',
-        'company_id': lambda self,cr,uid,c: self.pool.get('res.company')._company_default_get(cr, uid, 'mrp.bom', context=c),
     }
     _order = "sequence"
     _parent_name = "bom_id"
