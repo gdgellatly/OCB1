@@ -1653,7 +1653,7 @@ class account_move_reconcile(osv.osv):
         'opening_reconciliation': fields.boolean('Opening Entries Reconciliation', help="Is this reconciliation produced by the opening of a new fiscal year ?."),
     }
     _defaults = {
-        'name': lambda self,cr,uid,ctx=None: self.pool.get('ir.sequence').get(cr, uid, 'account.reconcile', context=ctx) or '/',
+        'name': lambda self,cr,uid,ctx=None: self.pool['ir.sequence'].next_by_code(cr, uid, 'account.reconcile', context=ctx) or '/',
     }
     
     # You cannot unlink a reconciliation if it is a opening_reconciliation one,
