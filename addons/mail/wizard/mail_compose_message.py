@@ -245,8 +245,11 @@ class mail_compose_message(osv.TransientModel):
                     email_dict = self.render_message(cr, uid, wizard, res_id, context=context)
                     post_values['partner_ids'] += email_dict.pop('partner_ids', [])
                     for filename, attachment_data in email_dict.pop('attachments', []):
+                        if context.get('is_aeroo_report'):
+                            post_values['attachments'].append((filename, attachment_data))
                         # decode as render message return in base64 while message_post expect binary
-                        post_values['attachments'].append((filename, base64.b64decode(attachment_data)))
+                        else:
+                            post_values['attachments'].append((filename, base64.b64decode(attachment_data)))
                     attachment_ids = []
                     for attach_id in post_values.pop('attachment_ids'):
                         new_attach_id = ir_attachment_obj.copy(cr, uid, attach_id, {'res_model': self._name, 'res_id': wizard.id}, context=context)
