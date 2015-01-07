@@ -40,7 +40,7 @@ debtor or creditor account. Secondly, price differences between actual
 purchase price and fixed product standard price are booked on a separate 
 account.""",
     'images': ['images/account_anglo_saxon.jpeg'],
-    'depends': ['product', 'purchase'],
+    'depends': ['product', 'purchase', 'picking_invoice_rel'],
     'category': 'Accounting & Finance',
     'demo': [],
     'data': ['product_view.xml',],
