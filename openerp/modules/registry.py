@@ -197,11 +197,7 @@ class RegistryManager(object):
         """ Return a registry for a given database name."""
         with cls.registries_lock:
             try:
-                if db_name in cls.registries:
-                    return cls.registries[db_name]
-                else:
-                    return cls.new(db_name, force_demo, status,
-                                   update_module)
+                return cls.registries[db_name]
             except KeyError:
                 return cls.new(db_name, force_demo, status,
                                update_module)
