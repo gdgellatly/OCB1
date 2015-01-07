@@ -21,158 +21,259 @@
 #
 ##############################################################################
 
-from openerp.osv import osv
+from openerp.osv import osv, orm
 from openerp.tools.float_utils import float_round as round
 
-class account_invoice_line(osv.osv):
+from openerp import pooler
+
+
+def get_account(cr, uid, product, account, fpos=False):
+    """Helper function to return the correct account"""
+    db_pool = pooler.get_pool(cr.dbname)
+    fiscal_pool = db_pool.get('account.fiscal.position')
+    res = eval('product.%s and product.%s.id' % (account, account))
+    if not res:
+        res = eval('product.categ_id.%s_categ and product.categ_id.%s_categ.id' %
+                   (account, account))
+    if fpos:
+        res = fiscal_pool.map_account(cr, uid, fpos, res)
+    return res
+
+
+class AccountInvoiceLine(osv.osv):
     _inherit = "account.invoice.line"
 
-    def move_line_get(self, cr, uid, invoice_id, context=None):
-        res = super(account_invoice_line,self).move_line_get(cr, uid, invoice_id, context=context)
-        inv = self.pool.get('account.invoice').browse(cr, uid, invoice_id, context=context)
-        company_currency = inv.company_id.currency_id.id
-        def get_price(cr, uid, inv, company_currency,i_line):
-            cur_obj = self.pool.get('res.currency')
+    def _get_price(self, cr, uid, inv, i_line, context=None):
+        if context is None:
+            context = {}
+
+        decimal_precision = self.pool['decimal.precision']
+        ctx2 = context.copy()
+        ctx2.update({'currency_id': inv.currency_id.id})
+        prod_obj = self.pool['product.product']
+        uom_obj = self.pool['product.uom']
+        product = i_line.product_id
+        move_ids = False
+
+        if product.cost_method == 'average' and i_line.invoice_id.picking_ids:
+            move_obj = self.pool['stock.move']
+            picking_ids = [x.id for x in i_line.invoice_id.picking_ids]
+            move_ids = move_obj.search(cr, uid,
+                                       [('picking_id', 'in', picking_ids),
+                                        ('product_id', '=', product.id)])
+            if not move_ids:
+                #If this is being triggered then we have probably changed/added
+                #to the invoice. Nothing good can happen, but best alternative,
+                #at least it is the current average cost.
+                price = prod_obj.price_get(cr, uid, [product.id],
+                                           ptype='standard_price',
+                                           context=ctx2)[product.id]
+            elif len(move_ids) != 1:
+                #most of the time we will only have one, but attempt to narrow the search
+                #if more than 1
+                move_ids_filtered = move_obj.search(
+                    cr, uid, [('id', 'in', move_ids),
+                               '|', ('product_uos_qty', '=', i_line.quantity),
+                              ('product_qty', '=', i_line.quantity)])
+                if move_ids_filtered:
+                    move_ids = move_ids_filtered
+            if move_ids:
+                #for now we take the average, overall entries will be correct but in case of
+                #multiple matches will be averaged over multiple lines in journal entry
+                #rest of this block is just an average cost calculation.
+                total = 0.0
+                total_qty = 0.0
+                for stock_move in move_obj.browse(cr, uid, move_ids):
+                    if stock_move.price_unit:
+                        total += stock_move.price_unit * stock_move.product_qty
+                    elif stock_move.prodlot_id and stock_move.prodlot_id.last_cost:
+                        total += uom_obj._compute_qty_obj(cr, uid, product.uom_id,
+                                                          stock_move.prodlot_id.last_cost,
+                                                          stock_move.product_uom) * stock_move.product_qty
+                    else:
+                        total += (stock_move.product_id.standard_price *
+                                  stock_move.product_qty) #probably need to convert uoms here
+                    total_qty += stock_move.product_qty
+                price = total / total_qty
+
+        elif product.cost_method == 'standard':
+            #note this doesn't allow for cost changes between dispatch and invoice
+            price = prod_obj.price_get(cr, uid, [product.id],
+                                       ptype='standard_price',
+                                       context=ctx2)[product.id]
+        else:
+            #TODO: there should be no else, should refactor this out to a new method for future
+            #extensibility of new cost methods, for now just get standard cost
+            price = prod_obj.price_get(cr, uid, [product.id],
+                                       ptype='standard_price',
+                                       context=ctx2)[product.id]
+        if not move_ids: # only convert if not using the already converted move values
+            uom = product.uos_id or product.uom_id
+            price = self.pool['product.uom']._compute_price(
+                cr, uid, uom.id, price, i_line.uos_id.id)
+        return price
+
+    def _prepare_anglosaxon_in_moves(self, cr, uid, res, inv, i_line, context=None):
+
+        diff_res = []
+        if context is None:
+            context = {}
+
+        if i_line.invoice_id.picking_ids:
+            if i_line.product_id.type != 'service':
+                fpos = i_line.invoice_id.fiscal_position or False
+                pd_acc = get_account(cr, uid, i_line.product_id,
+                                     'property_account_creditor_price_difference', fpos)
+
+                account = 'property_stock_account_input'
+                contra_acc = get_account(cr, uid, i_line.product_id, account, fpos)
+                for index, line in enumerate(res): #better to create a map here - even better with link between move and i_line
+                    if (index not in context['seen'] and contra_acc == line['account_id'] and
+                            i_line.product_id.id == line['product_id'] and
+                            i_line.quantity == line['quantity']):
+                        context['seen'].append(index)
+                        #this could be optimised to break after matching - simpler, now it just returns
+                        pd_line = self._prepare_anglosaxon_price_diff(cr, uid, i_line, line, pd_acc, context=context)
+                        if pd_line:
+                            diff_res.append(pd_line)
+                            return diff_res
+        return diff_res
+
+    def _prepare_anglosaxon_price_diff(self, cr, uid, i_line, line, pd_acc, context=None):
+
+        diff_res = False
+        price = self._get_price(cr, uid, i_line.invoice_id, i_line, context)
+        price_diff = (i_line.price_unit * ((100 - i_line.discount)/100)) - price
+        decimal_precision = self.pool.get('decimal.precision')
+        account_prec = decimal_precision.precision_get(cr, uid, 'Account')
+        if pd_acc and price_diff:
+            #price difference entry
+            line.update({'price': round(price * line['quantity'], account_prec),
+                         'price_unit': price})
+            diff_res = {'type': 'src',
+                        'name': i_line.name[:64],
+                        'price_unit': price_diff,
+                        'price': round(price_diff * line['quantity'], account_prec),
+                        'quantity': line['quantity'],
+                        'account_id': pd_acc,
+                        'product_id': line['product_id'],
+                        'uos_id': line['uos_id'],
+                        'account_analytic_id': line['account_analytic_id'],
+                        'taxes': line.get('taxes', []),
+                        }
+        return diff_res
+
+    def _prepare_anglosaxon_out_moves(self, cr, uid, inv, i_line,
+                                      company_currency, context=None):
+        res = []
+        if inv.picking_ids:
             decimal_precision = self.pool.get('decimal.precision')
-            if inv.currency_id.id != company_currency:
-                price = cur_obj.compute(cr, uid, company_currency, inv.currency_id.id, i_line.product_id.standard_price * i_line.quantity, context={'date': inv.date_invoice})
-            else:
-                price = i_line.product_id.standard_price * i_line.quantity
-            return round(price, decimal_precision.precision_get(cr, uid, 'Account'))
+            account_prec = decimal_precision.precision_get(cr, uid, 'Account')
+            account = 'property_stock_account_output'
+            fpos = i_line.invoice_id.fiscal_position
+            dr_acc = get_account(cr, uid, i_line.product_id, account, fpos)
+            cogs_acc = get_account(
+                cr, uid, i_line.product_id, 'property_account_expense', fpos)
 
-        if inv.type in ('out_invoice','out_refund'):
+            if dr_acc and cogs_acc:
+                ctx2 = context.copy()
+                if inv.currency_id.id != company_currency:
+                    ctx2.update({'currency_id': inv.currency_id.id})
+                price = self._get_price(cr, uid, inv, i_line, context=context)
+                #This is our stock contra entry.
+                line = {'type': 'src',
+                        'name': i_line.name[:64],
+                        'quantity': i_line.quantity,
+                        'product_id': i_line.product_id.id,
+                        'uos_id': i_line.uos_id.id,
+                        'account_analytic_id': False,
+                        'taxes': i_line.invoice_line_tax_id,
+                        'price_unit': price,
+                        'price': round(price * i_line.quantity, account_prec),
+                        'account_id': dr_acc,}
+
+                res.append(line.copy())
+                #This is our COGS entry
+                line.update({'price_unit': -price,
+                             'price': -price * i_line.quantity,
+                             'account_id': cogs_acc, })
+                res.append(line.copy())
+            return res
+
+    def move_line_get(self, cr, uid, invoice_id, context=None):
+        """
+        Method appends stock contra and cogs entries to invoice journal
+        moves out
+        and price difference entries to moves in.  See _prepare methods for
+        actual
+        implementation
+        """
+        res = super(AccountInvoiceLine, self).move_line_get(
+            cr, uid, invoice_id, context=context)
+        inv = self.pool['account.invoice'].browse(cr, uid, invoice_id, context=context)
+        company_currency = inv.company_id.currency_id.id
+
+        if inv.type in ('out_invoice', 'out_refund'):
             for i_line in inv.invoice_line:
-                if i_line.product_id and i_line.product_id.valuation == 'real_time':
-                    # debit account dacc will be the output account
-                    # first check the product, if empty check the category
-                    dacc = i_line.product_id.property_stock_account_output and i_line.product_id.property_stock_account_output.id
-                    if not dacc:
-                        dacc = i_line.product_id.categ_id.property_stock_account_output_categ and i_line.product_id.categ_id.property_stock_account_output_categ.id
-                    # in both cases the credit account cacc will be the expense account
-                    # first check the product, if empty check the category
-                    cacc = i_line.product_id.property_account_expense and i_line.product_id.property_account_expense.id
-                    if not cacc:
-                        cacc = i_line.product_id.categ_id.property_account_expense_categ and i_line.product_id.categ_id.property_account_expense_categ.id
-                    if dacc and cacc:
-                        res.append({
-                            'type':'src',
-                            'name': i_line.name[:64],
-                            'price_unit':i_line.product_id.standard_price,
-                            'quantity':i_line.quantity,
-                            'price':get_price(cr, uid, inv, company_currency, i_line),
-                            'account_id':dacc,
-                            'product_id':i_line.product_id.id,
-                            'uos_id':i_line.uos_id.id,
-                            'account_analytic_id': False,
-                            'taxes':i_line.invoice_line_tax_id,
-                            })
+                if i_line.product_id:
+                    out_moves = self._prepare_anglosaxon_out_moves(
+                        cr, uid, inv, i_line, company_currency, context=context)
+                    if out_moves:
+                        res.extend(out_moves)
 
-                        res.append({
-                            'type':'src',
-                            'name': i_line.name[:64],
-                            'price_unit':i_line.product_id.standard_price,
-                            'quantity':i_line.quantity,
-                            'price': -1 * get_price(cr, uid, inv, company_currency, i_line),
-                            'account_id':cacc,
-                            'product_id':i_line.product_id.id,
-                            'uos_id':i_line.uos_id.id,
-                            'account_analytic_id': False,
-                            'taxes':i_line.invoice_line_tax_id,
-                            })
-        elif inv.type in ('in_invoice','in_refund'):
+        elif inv.type in ('in_invoice', 'in_refund'):
+            if context is None:
+                context = {}
+            context.update({'seen': []})
             for i_line in inv.invoice_line:
-                if i_line.product_id and i_line.product_id.valuation == 'real_time':
-                    if i_line.product_id.type != 'service':
-                        # get the price difference account at the product
-                        acc = i_line.product_id.property_account_creditor_price_difference and i_line.product_id.property_account_creditor_price_difference.id
-                        if not acc:
-                            # if not found on the product get the price difference account at the category
-                            acc = i_line.product_id.categ_id.property_account_creditor_price_difference_categ and i_line.product_id.categ_id.property_account_creditor_price_difference_categ.id
-                        a = None
-
-                        # oa will be the stock input account
-                        # first check the product, if empty check the category
-                        oa = i_line.product_id.property_stock_account_input and i_line.product_id.property_stock_account_input.id
-                        if not oa:
-                            oa = i_line.product_id.categ_id.property_stock_account_input_categ and i_line.product_id.categ_id.property_stock_account_input_categ.id
-                        if oa:
-                            # get the fiscal position
-                            fpos = i_line.invoice_id.fiscal_position or False
-                            a = self.pool.get('account.fiscal.position').map_account(cr, uid, fpos, oa)
-                        diff_res = []
-                        decimal_precision = self.pool.get('decimal.precision')
-                        account_prec = decimal_precision.precision_get(cr, uid, 'Account')
-                        # calculate and write down the possible price difference between invoice price and product price
-                        for line in res:
-                            if line.get('invl_id', 0) == i_line.id and a == line['account_id']:
-                                uom = i_line.product_id.uos_id or i_line.product_id.uom_id
-                                standard_price = self.pool.get('product.uom')._compute_price(cr, uid, uom.id, i_line.product_id.standard_price, i_line.uos_id.id)
-                                if inv.currency_id.id != company_currency:
-                                    standard_price = self.pool.get('res.currency').compute(cr, uid, company_currency, inv.currency_id.id, standard_price, context={'date': inv.date_invoice})
-                                if standard_price != i_line.price_unit and line['price_unit'] == i_line.price_unit and acc:
-                                    # price with discount and without tax included
-                                    price_unit = self.pool['account.tax'].compute_all(cr, uid, line['taxes'],
-                                        i_line.price_unit * (1-(i_line.discount or 0.0)/100.0), line['quantity'])['total']
-                                    price_line = round(standard_price * line['quantity'], account_prec)
-                                    price_diff = round(price_unit - price_line, account_prec)
-                                    line.update({'price': price_line})
-                                    diff_res.append({
-                                        'type':'src',
-                                        'name': i_line.name[:64],
-                                        'price_unit': round(price_diff / line['quantity'], account_prec),
-                                        'quantity':line['quantity'],
-                                        'price': price_diff,
-                                        'account_id':acc,
-                                        'product_id':line['product_id'],
-                                        'uos_id':line['uos_id'],
-                                        'account_analytic_id':line['account_analytic_id'],
-                                        'taxes':line.get('taxes',[]),
-                                        })
-                        res += diff_res
+                if i_line.product_id:
+                    in_moves = self._prepare_anglosaxon_in_moves(
+                        cr, uid, res, inv, i_line, context=context)
+                    if in_moves:
+                        res.extend(in_moves)
         return res
 
-    def product_id_change(self, cr, uid, ids, product, uom_id, qty=0, name='', type='out_invoice', partner_id=False, fposition_id=False, price_unit=False, currency_id=False, context=None, company_id=None):
-        fiscal_pool = self.pool.get('account.fiscal.position')
-        res = super(account_invoice_line, self).product_id_change(cr, uid, ids, product, uom_id, qty, name, type, partner_id, fposition_id, price_unit, currency_id, context, company_id)
+    def product_id_change(self, cr, uid, ids, product, uom_id, qty=0, name='',
+                          type='out_invoice', partner_id=False,
+                          fposition_id=False, price_unit=False,
+                          currency_id=False, context=None, company_id=None):
+
+        res = super(AccountInvoiceLine, self).product_id_change(
+            cr, uid, ids, product, uom_id, qty, name, type, partner_id,
+            fposition_id, price_unit, currency_id, context, company_id)
+
         if not product:
             return res
-        if type in ('in_invoice','in_refund'):
-            product_obj = self.pool.get('product.product').browse(cr, uid, product, context=context)
-            if type == 'in_invoice':
-                oa = product_obj.property_stock_account_input and product_obj.property_stock_account_input.id
-                if not oa:
-                    oa = product_obj.categ_id.property_stock_account_input_categ and product_obj.categ_id.property_stock_account_input_categ.id
-            else:
-                oa = product_obj.property_stock_account_output and product_obj.property_stock_account_output.id
-                if not oa:
-                    oa = product_obj.categ_id.property_stock_account_output_categ and product_obj.categ_id.property_stock_account_output_categ.id
-            if oa:
-                fpos = fposition_id and fiscal_pool.browse(cr, uid, fposition_id, context=context) or False
-                a = fiscal_pool.map_account(cr, uid, fpos, oa)
-                res['value'].update({'account_id':a})
+
+        if type in ('in_invoice', 'in_refund'):
+            product_obj = self.pool['product.product'].browse(
+                cr, uid, product, context=context)
+            account = 'property_stock_account_input'
+            contra_acc = get_account(cr, uid, product_obj, account)
+            if contra_acc:
+                res['value'].update({'account_id': contra_acc})
         return res
 
-class account_invoice(osv.osv):
+
+class AccountInvoice(orm.Model):
     _inherit = "account.invoice"
 
-    def _prepare_refund(self, cr, uid, invoice, date=None, period_id=None, description=None, journal_id=None, context=None):
-        invoice_data = super(account_invoice, self)._prepare_refund(cr, uid, invoice, date, period_id,
-                                                                    description, journal_id, context=context)
+    def _prepare_refund(self, cr, uid, invoice, date=None, period_id=None,
+                        description=None, journal_id=None, context=None):
+        invoice_data = super(AccountInvoice, self)._prepare_refund(
+            cr, uid, invoice, date, period_id, description,
+            journal_id, context=context)
+
         if invoice.type == 'in_invoice':
-            fiscal_position = self.pool.get('account.fiscal.position')
             for _, _, line_dict in invoice_data['invoice_line']:
                 if line_dict.get('product_id'):
-                    product = self.pool.get('product.product').browse(cr, uid, line_dict['product_id'], context=context)
-                    counterpart_acct_id = product.property_stock_account_output and \
-                            product.property_stock_account_output.id
-                    if not counterpart_acct_id:
-                        counterpart_acct_id = product.categ_id.property_stock_account_output_categ and \
-                                product.categ_id.property_stock_account_output_categ.id
-                    if counterpart_acct_id:
-                        fpos = invoice.fiscal_position or False
-                        line_dict['account_id'] = fiscal_position.map_account(cr, uid,
-                                                                              fpos,
-                                                                              counterpart_acct_id)
+                    product = self.pool['product.product'].browse(
+                        cr, uid, line_dict['product_id'], context=context)
+                    fpos = invoice.fiscal_position or False
+                    contra_acc = get_account(
+                        cr, uid, product, 'property_stock_account_output', fpos)
+                    if contra_acc:
+                        line_dict['account_id'] = contra_acc
         return invoice_data
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
