@@ -1089,9 +1089,9 @@ class procurement_order(osv.osv):
                     cr.execute('update procurement_order set message=%s where id=%s', (message, procurement.id))
                 return False
 
-            if user.company_id and user.company_id.partner_id:
-                if partner.id == user.company_id.partner_id.id:
-                    raise osv.except_osv(_('Configuration Error!'), _('The product "%s" has been defined with your company as reseller which seems to be a configuration error!' % procurement.product_id.name))
+            # if user.company_id and user.company_id.partner_id:
+            #     if partner.id == user.company_id.partner_id.id:
+            #         raise osv.except_osv(_('Configuration Error!'), _('The product "%s" has been defined with your company as reseller which seems to be a configuration error!' % procurement.product_id.name))
 
         return True
 
