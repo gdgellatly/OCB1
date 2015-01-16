@@ -86,10 +86,6 @@ class AccountInvoiceLine(osv.osv):
                 for stock_move in move_obj.browse(cr, uid, move_ids):
                     if stock_move.price_unit:
                         total += stock_move.price_unit * stock_move.product_qty
-                    elif stock_move.prodlot_id and stock_move.prodlot_id.last_cost:
-                        total += uom_obj._compute_qty_obj(cr, uid, product.uom_id,
-                                                          stock_move.prodlot_id.last_cost,
-                                                          stock_move.product_uom) * stock_move.product_qty
                     else:
                         total += (stock_move.product_id.standard_price *
                                   stock_move.product_qty) #probably need to convert uoms here
