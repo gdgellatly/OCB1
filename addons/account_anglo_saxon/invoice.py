@@ -107,7 +107,7 @@ class AccountInvoiceLine(osv.osv):
             uom = product.uos_id or product.uom_id
             price = self.pool['product.uom']._compute_price(
                 cr, uid, uom.id, price, i_line.uos_id.id)
-        return round(price, 2)
+        return price
 
     def _prepare_anglosaxon_in_moves(self, cr, uid, res, inv, i_line, context=None):
 
@@ -191,7 +191,7 @@ class AccountInvoiceLine(osv.osv):
                 res.append(line.copy())
                 #This is our COGS entry
                 line.update({'price_unit': -price,
-                             'price': -price * i_line.quantity,
+                             'price': round(-price * i_line.quantity, account_prec),
                              'account_id': cogs_acc, })
                 res.append(line.copy())
             return res
