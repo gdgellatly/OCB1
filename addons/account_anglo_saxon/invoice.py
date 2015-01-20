@@ -107,7 +107,7 @@ class AccountInvoiceLine(osv.osv):
             uom = product.uos_id or product.uom_id
             price = self.pool['product.uom']._compute_price(
                 cr, uid, uom.id, price, i_line.uos_id.id)
-        return price
+        return round(price, 2)
 
     def _prepare_anglosaxon_in_moves(self, cr, uid, res, inv, i_line, context=None):
 
