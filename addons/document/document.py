@@ -125,7 +125,7 @@ class document_file(osv.osv):
         # take partner from uid
         if vals.get('res_id', False) and vals.get('res_model', False) and not vals.get('partner_id', False):
             vals['partner_id'] = self.__get_partner_id(cr, uid, vals['res_model'], vals['res_id'], context)
-        if vals.get('datas', False) and '.pdf' in datas_fname:
+        if vals.get('datas', False) and '.pdf' in vals.get('datas_fname'):
             vals['file_type'], vals['index_content'] = self._index(cr, uid, vals['datas'].decode('base64'), vals.get('datas_fname', False), None)
         return super(document_file, self).create(cr, uid, vals, context)
 
