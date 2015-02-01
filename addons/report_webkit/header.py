@@ -62,7 +62,9 @@ PAPER_SIZES = [
                 ('Legal', 'Legal    3   8.5 x 14 inches, 215.9 x 355.6 mm'),
                 ('Letter','Letter 2 8.5 x 11 inches, 215.9 x 279.4 mm'),
                 ('Tabloid', 'Tabloid 29 279.4 x 431.8 mm'),
+                ('custom', 'Custom Paper Size')
                 ]
+
 
 class HeaderHTML(osv.osv):
     """HTML Header allows you to define HTML CSS and Page format"""
@@ -85,7 +87,9 @@ class HeaderHTML(osv.osv):
         'format': fields.selection(
             PAPER_SIZES, 'Paper size', required=True,
             help="Select Proper Paper size"
-        )
+        ),
+        'paper_width': fields.integer('Paper Width (mm)'),
+        'paper_height': fields.integer('Paper Height (mm)'),
     }
 HeaderHTML()
 
