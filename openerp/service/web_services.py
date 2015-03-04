@@ -42,6 +42,7 @@ import openerp.modules
 import openerp.exceptions
 from openerp.service import http_server
 from openerp import SUPERUSER_ID
+from newrelic.agent import FunctionTraceWrapper
 
 #.apidoc title: Exported Service methods
 #.apidoc module-mods: member-order: bysource
@@ -622,7 +623,7 @@ class objects_proxy(netsvc.ExportService):
         security.check(db,uid,passwd)
         assert openerp.osv.osv.service, "The object_proxy class must be started with start_object_proxy."
         openerp.modules.registry.RegistryManager.check_registry_signaling(db)
-        fn = getattr(openerp.osv.osv.service, method)
+        fn = FunctionTraceWrapper(getattr(openerp.osv.osv.service, method), params=params)
         res = fn(db, uid, *params)
         openerp.modules.registry.RegistryManager.signal_caches_change(db)
         return res

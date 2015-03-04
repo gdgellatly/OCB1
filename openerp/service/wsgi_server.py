@@ -24,9 +24,6 @@
 WSGI stack, common code.
 
 """
-import newrelic.agent
-newrelic.agent.initialize('/opt/openerp/etc/newrelic.ini')
-
 import httplib
 import urllib
 import xmlrpclib
@@ -399,8 +396,6 @@ def register_wsgi_handler(handler):
     """
     module_handlers.append(handler)
 
-
-@newrelic.agent.wsgi_application()
 def application_unproxied(environ, start_response):
     """ WSGI entry point."""
     # cleanup db/uid trackers - they're set at HTTP dispatch in
