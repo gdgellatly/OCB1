@@ -19,6 +19,7 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from .invoice import get_account
 
 
 class ProductCategory(orm.Model):
@@ -79,3 +80,36 @@ class ProductTemplate(orm.Model):
             help="This account will be used to value outgoing stock using cost price."),
 
     }
+
+
+class ChangeStandardPrice(orm.TransientModel):
+    _inherit = "stock.change.standard.price"
+
+    def default_get(self, cr, uid, fields, context=None):
+        """ To get default values for the object.
+         @param self: The object pointer.
+         @param cr: A database cursor
+         @param uid: ID of the user currently logged in
+         @param fields: List of fields for which we want default values
+         @param context: A standard dictionary
+         @return: A dictionary which of fields with values.
+
+         For anglo saxon this must be a P & L account.  That leaves a choice
+         between COGS or Price Difference without creating a new field.
+         Price Difference is selected as that
+         is where invoice variances would have ended up.
+        """
+        res = super(ChangeStandardPrice, self).default_get(
+            cr, uid, fields, context=context)
+        if context is None:
+            context = {}
+        product_pool = self.pool['product.product']
+        product = product_pool.browse(cr, uid, context['active_id'])
+        account = get_account(cr, uid, product,
+                              'property_account_creditor_price_difference')
+        if 'stock_account_input' in fields:
+            res.update({'stock_account_input': account})
+        if 'stock_account_output' in fields:
+            res.update({'stock_account_output': account})
+
+        return res
