@@ -29,7 +29,6 @@ class sale_report(osv.osv):
         'shipped_qty_1': fields.integer('Shipped', readonly=True),
         'state': fields.selection([
             ('draft', 'Quotation'),
-            ('sent', 'Quotation Sent'),
             ('waiting_date', 'Waiting Schedule'),
             ('manual', 'Manual In Progress'),
             ('progress', 'In Progress'),

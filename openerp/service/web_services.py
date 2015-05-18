@@ -42,7 +42,6 @@ import openerp.modules
 import openerp.exceptions
 from openerp.service import http_server
 from openerp import SUPERUSER_ID
-from newrelic.agent import FunctionTraceWrapper
 
 #.apidoc title: Exported Service methods
 #.apidoc module-mods: member-order: bysource
@@ -97,24 +96,6 @@ def _initialize_db(serv, id, db_name, demo, lang, user_password):
         serv.actions[id]['traceback'] = traceback.format_exc()
         if cr:
             cr.close()
-
-def _drop_conn(cr, db_name):
-    # Try to terminate all other connections that might prevent
-    # dropping the database
-    try:
-
-        # PostgreSQL 9.2 renamed pg_stat_activity.procpid to pid:
-        # http://www.postgresql.org/docs/9.2/static/release-9-2.html#AEN110389
-        pid_col = 'pid' if cr._cnx.server_version >= 90200 else 'procpid'
-
-        cr.execute("""SELECT pg_terminate_backend(%(pid_col)s)
-                          FROM pg_stat_activity
-                          WHERE datname = %%s AND
-                                %(pid_col)s != pg_backend_pid()""" % {
-        'pid_col': pid_col},
-                   (db_name,))
-    except Exception:
-        pass
 
 class db(netsvc.ExportService):
     def __init__(self, name="db"):
@@ -194,7 +175,6 @@ class db(netsvc.ExportService):
         cr = db.cursor()
         try:
             cr.autocommit(True) # avoid transaction block
-            _drop_conn(cr, db_original_name)
             cr.execute("""CREATE DATABASE "%s" ENCODING 'unicode' TEMPLATE "%s" """ % (db_name, db_original_name))
         finally:
             cr.close()
@@ -223,9 +203,23 @@ class db(netsvc.ExportService):
 
         db = sql_db.db_connect('postgres')
         cr = db.cursor()
+        cr.autocommit(True) # avoid transaction block
         try:
-            cr.autocommit(True) # avoid transaction block
-            _drop_conn(cr, db_name)
+            # Try to terminate all other connections that might prevent
+            # dropping the database
+            try:
+
+                # PostgreSQL 9.2 renamed pg_stat_activity.procpid to pid:
+                # http://www.postgresql.org/docs/9.2/static/release-9-2.html#AEN110389
+                pid_col = 'pid' if cr._cnx.server_version >= 90200 else 'procpid'
+
+                cr.execute("""SELECT pg_terminate_backend(%(pid_col)s)
+                              FROM pg_stat_activity
+                              WHERE datname = %%s AND 
+                                    %(pid_col)s != pg_backend_pid()""" % {'pid_col': pid_col},
+                           (db_name,))
+            except Exception:
+                pass
 
             try:
                 cr.execute('DROP DATABASE "%s"' % db_name)
@@ -335,9 +329,8 @@ class db(netsvc.ExportService):
 
         db = sql_db.db_connect('postgres')
         cr = db.cursor()
+        cr.autocommit(True) # avoid transaction block
         try:
-            cr.autocommit(True) # avoid transaction block
-            _drop_conn(cr, old_name)
             try:
                 cr.execute('ALTER DATABASE "%s" RENAME TO "%s"' % (old_name, new_name))
             except Exception, e:
@@ -629,7 +622,7 @@ class objects_proxy(netsvc.ExportService):
         security.check(db,uid,passwd)
         assert openerp.osv.osv.service, "The object_proxy class must be started with start_object_proxy."
         openerp.modules.registry.RegistryManager.check_registry_signaling(db)
-        fn = FunctionTraceWrapper(getattr(openerp.osv.osv.service, method), params=params)
+        fn = getattr(openerp.osv.osv.service, method)
         res = fn(db, uid, *params)
         openerp.modules.registry.RegistryManager.signal_caches_change(db)
         return res

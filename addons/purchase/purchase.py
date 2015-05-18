@@ -266,22 +266,6 @@ class purchase_order(osv.osv):
 
         return super(purchase_order, self).unlink(cr, uid, unlink_ids, context=context)
 
-    def set_order_line_status(self, cr, uid, ids, status, context=None):
-        line = self.pool.get('purchase.order.line')
-        order_line_ids = []
-        move_ids = []
-        proc_obj = self.pool.get('procurement.order')
-        for order in self.browse(cr, uid, ids, context=context):
-            order_line_ids += [po_line.id for po_line in order.order_line]
-            move_ids += [po_line.move_dest_id.id for po_line in order.order_line if po_line.move_dest_id]
-        if order_line_ids:
-            line.write(cr, uid, order_line_ids, {'state': status}, context=context)
-        if order_line_ids and status == 'cancel':
-            procs = proc_obj.search(cr, uid, [('move_id', 'in', move_ids)], context=context)
-            if procs:
-                proc_obj.write(cr, uid, procs, {'state': 'exception'}, context=context)
-        return True
-
     def button_dummy(self, cr, uid, ids, context=None):
         return True
 
@@ -405,7 +389,6 @@ class purchase_order(osv.osv):
         })
         return action
 
-
     def wkf_approve_order(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {'state': 'approved', 'date_approve': fields.date.context_today(self,cr,uid,context=context)})
         return True
@@ -471,10 +454,6 @@ class purchase_order(osv.osv):
         for po in self.browse(cr, uid, ids, context=context):
             if not po.order_line:
                 raise osv.except_osv(_('Error!'),_('You cannot confirm a purchase order without any purchase order line.'))
-            if po.invoice_method == 'picking' and not any([l.product_id and l.product_id.type in ('product', 'consu') for l in po.order_line]):
-                raise osv.except_osv(
-                    _('Error!'),
-                    _("You cannot confirm a purchase order with Invoice Control Method 'Based on incoming shipments' that doesn't contain any stockable item."))
             for line in po.order_line:
                 if line.state=='draft':
                     todo.append(line.id)
@@ -603,10 +582,6 @@ class purchase_order(osv.osv):
                     return True
         return False
 
-    def wkf_action_cancel(self, cr, uid, ids, context=None):
-        self.write(cr, uid, ids, {'state': 'cancel'}, context=context)
-        self.set_order_line_status(cr, uid, ids, 'cancel', context=context)
-
     def action_cancel(self, cr, uid, ids, context=None):
         wf_service = netsvc.LocalService("workflow")
         for purchase in self.browse(cr, uid, ids, context=context):
@@ -626,8 +601,9 @@ class purchase_order(osv.osv):
                     wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_cancel', cr)
             self.pool['purchase.order.line'].write(cr, uid, [l.id for l in  purchase.order_line],
                     {'state': 'cancel'})
+        self.write(cr,uid,ids,{'state':'cancel'})
 
-        for id in ids:
+        for (id, name) in self.name_get(cr, uid, ids):
             wf_service.trg_validate(uid, 'purchase.order', id, 'purchase_cancel', cr)
         return True
 
@@ -1013,12 +989,10 @@ class purchase_order_line(osv.osv):
             context_partner.update( {'lang': lang, 'partner_id': partner_id} )
         product = product_product.browse(cr, uid, product_id, context=context_partner)
         #call name_get() with partner in the context to eventually match name and description in the seller_ids field
-        if not name or not uom_id:
-            # The 'or not uom_id' part of the above condition can be removed in master. See commit message of the rev. introducing this line.
-            dummy, name = product_product.name_get(cr, uid, product_id, context=context_partner)[0]
-            if product.description_purchase:
-                name += '\n' + product.description_purchase
-            res['value'].update({'name': name})
+        dummy, name = product_product.name_get(cr, uid, product_id, context=context_partner)[0]
+        if product.description_purchase:
+            name += '\n' + product.description_purchase
+        res['value'].update({'name': name})
 
         # - set a domain on product_uom
         res['domain'] = {'product_uom': [('category_id','=',product.uom_id.category_id.id)]}
@@ -1329,16 +1303,10 @@ class account_invoice(osv.Model):
         for order in purchase_order_obj.browse(cr, uid, po_ids, context=context):
             # Signal purchase order workflow that an invoice has been validated.
             invoiced = []
-            shipped = True
-            # for invoice method manual or order, don't care about shipping state
-            # for invoices based on incoming shippment, beware of partial deliveries
-            if (order.invoice_method == 'picking' and
-                    not all(picking.invoice_state in ['invoiced'] for picking in order.picking_ids)):
-                shipped = False
             for po_line in order.order_line:
-                if all(line.invoice_id.state not in ['draft', 'cancel'] for line in po_line.invoice_lines):
+                if any(line.invoice_id.state not in ['draft', 'cancel'] for line in po_line.invoice_lines):
                     invoiced.append(po_line.id)
-            if invoiced and shipped:
+            if invoiced:
                 self.pool['purchase.order.line'].write(cr, uid, invoiced, {'invoiced': True})
             wf_service.trg_write(uid, 'purchase.order', order.id, cr)
         return res

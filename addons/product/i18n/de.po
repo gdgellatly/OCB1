@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
 "PO-Revision-Date: 2014-01-26 09:23+0000\n"
 "Last-Translator: Ralf Hilgenstock <rh@dialoge.info>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 07:12+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-01-27 05:45+0000\n"
+"X-Generator: Launchpad (build 16914)\n"
 "Language: de\n"
 
 #. module: product
@@ -42,7 +42,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_34_product_template
-#: model:product.template,name:product.product_template_34
 msgid "Webcam"
 msgstr "Webcam"
 
@@ -82,7 +81,6 @@ msgstr "Fest"
 
 #. module: product
 #: model:product.template,name:product.product_product_10_product_template
-#: model:product.template,name:product.product_template_10
 msgid "Mouse, Optical"
 msgstr "Maus, optisch"
 
@@ -106,7 +104,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_3_product_template
-#: model:product.template,name:product.product_template_3
 msgid "PC Assemble SC234"
 msgstr "PC Bausatz SC234"
 
@@ -121,7 +118,7 @@ msgstr ""
 "weiterzuarbeiten."
 
 #. module: product
-#: code:addons/product/pricelist.py:198
+#: code:addons/product/pricelist.py:179
 #: code:addons/product/product.py:208
 #, python-format
 msgid "Warning!"
@@ -164,7 +161,6 @@ msgstr "Preisliste"
 
 #. module: product
 #: model:product.template,name:product.product_product_4_product_template
-#: model:product.template,name:product.product_template_4
 msgid "PC Assemble SC349"
 msgstr "PC Bausatz SC349"
 
@@ -224,7 +220,6 @@ msgstr "Oberkategorie"
 
 #. module: product
 #: model:product.template,description:product.product_product_33_product_template
-#: model:product.template,description:product.product_template_33
 msgid "Headset for laptop PC with USB connector."
 msgstr "Kopfhörer für Notebooks mit USB Anschluss"
 
@@ -269,7 +264,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_42_product_template
-#: model:product.template,description_sale:product.product_template_42
 msgid ""
 "Office Editing Software with word processing, spreadsheets, presentations, "
 "graphics, and databases..."
@@ -307,7 +301,6 @@ msgstr "Kategorie"
 
 #. module: product
 #: model:product.template,name:product.product_product_25_product_template
-#: model:product.template,name:product.product_template_25
 msgid "Laptop E5023"
 msgstr "Laptop E5023"
 
@@ -323,7 +316,6 @@ msgstr "Anzahl der Packstücke nach Ebene"
 
 #. module: product
 #: model:product.template,name:product.product_product_30_product_template
-#: model:product.template,name:product.product_template_30
 msgid "Pen drive, SP-4"
 msgstr "Pen drive, SP-4"
 
@@ -334,7 +326,6 @@ msgstr "Menge pro Verpackung"
 
 #. module: product
 #: model:product.template,name:product.product_product_29_product_template
-#: model:product.template,name:product.product_template_29
 msgid "Pen drive, SP-2"
 msgstr "Pen drive, SP-2"
 
@@ -398,7 +389,6 @@ msgstr "Produktmanager"
 
 #. module: product
 #: model:product.template,name:product.product_product_7_product_template
-#: model:product.template,name:product.product_template_7
 msgid "17” LCD Monitor"
 msgstr "17” LCD Monitor"
 
@@ -538,7 +528,6 @@ msgstr "Verkauf & Einkauf"
 
 #. module: product
 #: model:product.template,name:product.product_product_44_product_template
-#: model:product.template,name:product.product_template_44
 msgid "GrapWorks Software"
 msgstr ""
 
@@ -549,7 +538,6 @@ msgstr "Arbeitszeit"
 
 #. module: product
 #: model:product.template,name:product.product_product_42_product_template
-#: model:product.template,name:product.product_template_42
 msgid "Office Suite"
 msgstr "Office Suite"
 
@@ -560,7 +548,6 @@ msgstr "Mengeneinheit Typ"
 
 #. module: product
 #: model:product.template,name:product.product_product_32_product_template
-#: model:product.template,name:product.product_template_32
 msgid "Headset standard"
 msgstr "Kopfhörer, Standard"
 
@@ -634,13 +621,11 @@ msgstr "Einkaufspreisliste"
 
 #. module: product
 #: model:product.template,name:product.product_product_5_product_template
-#: model:product.template,name:product.product_template_5
 msgid "PC Assemble + Custom (PC on Demand)"
 msgstr "PC Baukasten + Anpassungen (PC im Auftrag)"
 
 #. module: product
 #: model:product.template,description:product.product_product_27_product_template
-#: model:product.template,description:product.product_template_27
 msgid "Custom Laptop based on customer's requirement."
 msgstr "Angepasster Laptop, auf Kundenanforderungen basierend"
 
@@ -657,7 +642,6 @@ msgstr "Zuordnungsfehler Mengeneinheit Kategorien!"
 
 #. module: product
 #: model:product.template,name:product.product_product_36_product_template
-#: model:product.template,name:product.product_template_36
 msgid "Blank DVD-RW"
 msgstr "Leere DVD-RW"
 
@@ -707,13 +691,11 @@ msgstr "Min. Bestellmenge"
 
 #. module: product
 #: model:product.template,name:product.product_product_12_product_template
-#: model:product.template,name:product.product_template_12
 msgid "Mouse, Wireless"
 msgstr "Maus, kabellos (Funk)"
 
 #. module: product
 #: model:product.template,name:product.product_product_22_product_template
-#: model:product.template,name:product.product_template_22
 msgid "Processor Core i5 2.70 Ghz"
 msgstr "Processor Core i5 2.70 Ghz"
 
@@ -750,13 +732,11 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_18_product_template
-#: model:product.template,name:product.product_template_18
 msgid "HDD SH-2"
 msgstr "HDD SH-2"
 
 #. module: product
 #: model:product.template,name:product.product_product_17_product_template
-#: model:product.template,name:product.product_template_17
 msgid "HDD SH-1"
 msgstr "HDD SH-1"
 
@@ -819,7 +799,6 @@ msgstr "Beschaffung"
 
 #. module: product
 #: model:product.template,name:product.product_product_33_product_template
-#: model:product.template,name:product.product_template_33
 msgid "Headset USB"
 msgstr "Kopfhörer, USB"
 
@@ -850,7 +829,6 @@ msgstr "Lieferant des Produktes"
 
 #. module: product
 #: model:product.template,name:product.product_product_28_product_template
-#: model:product.template,name:product.product_template_28
 msgid "External Hard disk"
 msgstr "Externe Festplatte"
 
@@ -948,7 +926,6 @@ msgstr "Preisrundung"
 
 #. module: product
 #: model:product.template,name:product.product_product_1_product_template
-#: model:product.template,name:product.product_template_1
 msgid "On Site Monitoring"
 msgstr "Vor-Ort Kontrolle (Überwachung)"
 
@@ -973,7 +950,6 @@ msgstr "Währung"
 
 #. module: product
 #: model:product.template,name:product.product_product_46_product_template
-#: model:product.template,name:product.product_template_46
 msgid "Datacard"
 msgstr "Datacard"
 
@@ -998,7 +974,6 @@ msgstr "Beschaffung & Lagerorte"
 
 #. module: product
 #: model:product.template,name:product.product_product_20_product_template
-#: model:product.template,name:product.product_template_20
 msgid "Motherboard I9P57"
 msgstr "Motherboard I9P57"
 
@@ -1081,7 +1056,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_3_product_template
-#: model:product.template,description_sale:product.product_template_3
 msgid ""
 "17\" LCD Monitor\n"
 "Processor AMD 8-Core\n"
@@ -1105,7 +1079,6 @@ msgstr "Kurzbez."
 
 #. module: product
 #: model:product.template,name:product.product_product_27_product_template
-#: model:product.template,name:product.product_template_27
 msgid "Laptop Customized"
 msgstr "Angepasster Laptop"
 
@@ -1116,7 +1089,6 @@ msgstr "Versand Mengeneinheit"
 
 #. module: product
 #: model:product.template,name:product.product_product_35_product_template
-#: model:product.template,name:product.product_template_35
 msgid "Blank CD"
 msgstr "Leere CD"
 
@@ -1170,7 +1142,6 @@ msgstr "Abbrechen"
 
 #. module: product
 #: model:product.template,description:product.product_product_37_product_template
-#: model:product.template,description:product.product_template_37
 msgid "All in one hi-speed printer with fax and scanner."
 msgstr "Hochgeschwindigkeitsdrucker mit Fax und Scanner"
 
@@ -1226,14 +1197,13 @@ msgid "Price Surcharge"
 msgstr "Aufschlag"
 
 #. module: product
-#: code:addons/product/pricelist.py:401
+#: code:addons/product/pricelist.py:380
 #, python-format
 msgid "Supplier Prices on the product form"
 msgstr "Lieferpreise im Produkt-Formular"
 
 #. module: product
 #: model:product.template,name:product.product_product_8_product_template
-#: model:product.template,name:product.product_template_8
 msgid "USB Keyboard, QWERTY"
 msgstr "Tastatur, USB \"QWERTZ\""
 
@@ -1408,7 +1378,6 @@ msgstr "Produkte"
 
 #. module: product
 #: model:product.template,description:product.product_product_32_product_template
-#: model:product.template,description:product.product_template_32
 msgid ""
 "Hands free headset for laptop PC with in-line microphone and headphone plug."
 msgstr ""
@@ -1475,20 +1444,18 @@ msgid "Supplier Info"
 msgstr "Lieferanteninfo"
 
 #. module: product
-#: code:addons/product/product.py:733
+#: code:addons/product/product.py:732
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (Kopie)"
 
 #. module: product
 #: model:product.template,name:product.product_product_2_product_template
-#: model:product.template,name:product.product_template_2
 msgid "On Site Assistance"
 msgstr "Vor-Ort Betreuung"
 
 #. module: product
 #: model:product.template,name:product.product_product_39_product_template
-#: model:product.template,name:product.product_template_39
 msgid "Toner Cartridge"
 msgstr "Tonerkartusche"
 
@@ -1526,7 +1493,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_43_product_template
-#: model:product.template,name:product.product_template_43
 msgid "Zed+ Antivirus"
 msgstr "Zed+ Antivirus"
 
@@ -1565,7 +1531,6 @@ msgstr "Bruttogewicht in kg"
 
 #. module: product
 #: model:product.template,name:product.product_product_37_product_template
-#: model:product.template,name:product.product_template_37
 msgid "Printer, All-in-one"
 msgstr "Drucker, All-In-One"
 
@@ -1576,7 +1541,6 @@ msgstr "Beschaffung"
 
 #. module: product
 #: model:product.template,name:product.product_product_23_product_template
-#: model:product.template,name:product.product_template_23
 msgid "Processor AMD 8-Core"
 msgstr "Prozessor AMD 8-Core"
 
@@ -1628,7 +1592,6 @@ msgstr "Startdatum"
 
 #. module: product
 #: model:product.template,name:product.product_product_38_product_template
-#: model:product.template,name:product.product_template_38
 msgid "Ink Cartridge"
 msgstr "Tintenpatrone"
 
@@ -1685,7 +1648,6 @@ msgstr "Produktpreis"
 
 #. module: product
 #: model:product.template,description:product.product_product_26_product_template
-#: model:product.template,description:product.product_template_26
 msgid ""
 "17\" Monitor\n"
 "6GB RAM\n"
@@ -1709,15 +1671,12 @@ msgstr "Verbrauchswaren"
 
 #. module: product
 #: model:product.template,name:product.product_product_21_product_template
-#: model:product.template,name:product.product_template_21
 msgid "Motherboard A20Z7"
 msgstr "Motherboard A20Z7"
 
 #. module: product
 #: model:product.template,description:product.product_product_1_product_template
-#: model:product.template,description:product.product_template_1
 #: model:product.template,description_sale:product.product_product_1_product_template
-#: model:product.template,description_sale:product.product_template_1
 msgid "This type of service include basic monitoring of products."
 msgstr ""
 "Dieser Service beinhaltet auch die Grundlagen zum Remote-Servermonitoring"
@@ -1729,7 +1688,6 @@ msgstr "Letzte gültige Version"
 
 #. module: product
 #: model:product.template,name:product.product_product_19_product_template
-#: model:product.template,name:product.product_template_19
 msgid "HDD on Demand"
 msgstr ""
 
@@ -1764,7 +1722,6 @@ msgstr "Der Umrechnungsfaktor einer Mengeneinheit kann nicht 0 sein!"
 
 #. module: product
 #: model:product.template,name:product.product_product_24_product_template
-#: model:product.template,name:product.product_template_24
 msgid "Graphics Card"
 msgstr "Vorlagen Grafiken"
 
@@ -1785,7 +1742,6 @@ msgstr "Gewicht der Verpackung"
 
 #. module: product
 #: model:product.template,name:product.product_product_41_product_template
-#: model:product.template,name:product.product_template_41
 msgid "Windows Home Server 2011"
 msgstr "Windows Home Server 2011"
 
@@ -1796,7 +1752,6 @@ msgstr "Produkte Datenfelder"
 
 #. module: product
 #: model:product.template,description:product.product_product_5_product_template
-#: model:product.template,description:product.product_template_5
 msgid "Custom computer assembled on order based on customer's requirement."
 msgstr "Kundenindividueller PC, montiert auf Ihre Anforderung"
 
@@ -1936,13 +1891,11 @@ msgstr "Kategorien"
 
 #. module: product
 #: model:product.template,name:product.product_product_16_product_template
-#: model:product.template,name:product.product_template_16
 msgid "Computer Case"
 msgstr "Computergehäuse"
 
 #. module: product
 #: model:product.template,name:product.product_product_9_product_template
-#: model:product.template,name:product.product_template_9
 msgid "USB Keyboard, AZERTY"
 msgstr "USB Keyboard, QWERTZ"
 
@@ -1988,7 +1941,6 @@ msgstr "Box 30x40x60"
 
 #. module: product
 #: model:product.template,name:product.product_product_47_product_template
-#: model:product.template,name:product.product_template_47
 msgid "Switch, 24 ports"
 msgstr "Switch, 24 Ports"
 
@@ -2010,7 +1962,6 @@ msgstr "Interne Beschreibung"
 
 #. module: product
 #: model:product.template,name:product.product_product_48_product_template
-#: model:product.template,name:product.product_template_48
 msgid "USB Adapter"
 msgstr "USB Adapter"
 
@@ -2053,7 +2004,6 @@ msgstr "Unternehmen"
 
 #. module: product
 #: model:product.template,name:product.product_product_26_product_template
-#: model:product.template,name:product.product_template_26
 msgid "Laptop S3450"
 msgstr "Laptop S3450"
 
@@ -2074,7 +2024,6 @@ msgstr "Weitere Produkte"
 
 #. module: product
 #: model:product.template,description:product.product_product_9_product_template
-#: model:product.template,description:product.product_template_9
 msgid "This product is configured with example of push/pull flows"
 msgstr ""
 "Dieses Produkte wurden konfiguriert mit Beispielen für push/poll Workflows"
@@ -2170,13 +2119,11 @@ msgstr "Rohmaterial"
 
 #. module: product
 #: model:product.template,name:product.product_product_13_product_template
-#: model:product.template,name:product.product_template_13
 msgid "RAM SR5"
 msgstr "RAM SR5"
 
 #. module: product
 #: model:product.template,name:product.product_product_14_product_template
-#: model:product.template,name:product.product_template_14
 msgid "RAM SR2"
 msgstr "RAM SR2"
 
@@ -2219,7 +2166,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_44_product_template
-#: model:product.template,description_sale:product.product_template_44
 msgid "Full featured image editing software."
 msgstr ""
 
@@ -2237,7 +2183,6 @@ msgstr "* ( 1 + "
 
 #. module: product
 #: model:product.template,name:product.product_product_31_product_template
-#: model:product.template,name:product.product_template_31
 msgid "Multimedia Speakers"
 msgstr ""
 
@@ -2405,7 +2350,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description:product.product_product_2_product_template
-#: model:product.template,description:product.product_template_2
 msgid ""
 "This type of service include assistance for security questions, system "
 "configuration requirements, implementation or special needs."
@@ -2425,7 +2369,6 @@ msgstr "Mengeneinheit Kategorien"
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_4_product_template
-#: model:product.template,description_sale:product.product_template_4
 msgid ""
 "19\" LCD Monitor\n"
 "Processor Core i5 2.70 Ghz\n"
@@ -2454,7 +2397,6 @@ msgstr "Intern"
 
 #. module: product
 #: model:product.template,name:product.product_product_45_product_template
-#: model:product.template,name:product.product_template_45
 msgid "Router R430"
 msgstr "Router R430"
 
@@ -2472,7 +2414,7 @@ msgid "Normal"
 msgstr "Normal"
 
 #. module: product
-#: code:addons/product/pricelist.py:198
+#: code:addons/product/pricelist.py:179
 #, python-format
 msgid ""
 "At least one pricelist has no active version !\n"
@@ -2579,7 +2521,6 @@ msgstr "z.B. 1 * (diese Einheit) =  Faktor * (Referenzeinheit)"
 
 #. module: product
 #: model:product.template,description:product.product_product_25_product_template
-#: model:product.template,description:product.product_template_25
 msgid ""
 "17\" Monitor\n"
 "4GB RAM\n"
@@ -2641,7 +2582,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_11_product_template
-#: model:product.template,name:product.product_template_11
 msgid "Mouse, Laser"
 msgstr "Maus (Laser)"
 
@@ -2698,7 +2638,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_40_product_template
-#: model:product.template,name:product.product_template_40
 msgid "Windows 7 Professional"
 msgstr "Windows 7 Professional"
 
@@ -2724,12 +2663,11 @@ msgstr "Produktvarianten"
 
 #. module: product
 #: model:product.template,name:product.product_product_6_product_template
-#: model:product.template,name:product.product_template_6
 msgid "15” LCD Monitor"
 msgstr "15” LCD Monitor"
 
 #. module: product
-#: code:addons/product/pricelist.py:400
+#: code:addons/product/pricelist.py:379
 #: field:product.pricelist.item,base_pricelist_id:0
 #, python-format
 msgid "Other Pricelist"
@@ -2794,7 +2732,6 @@ msgstr "Produktkategorie"
 
 #. module: product
 #: model:product.template,description:product.product_product_19_product_template
-#: model:product.template,description:product.product_template_19
 msgid "On demand hard-disk having capacity based on requirement."
 msgstr "Festplatte auf Abruf, bedarfsgerechte Kapazität"
 
@@ -2805,7 +2742,6 @@ msgstr "Ende Produktlebenszyklus"
 
 #. module: product
 #: model:product.template,name:product.product_product_15_product_template
-#: model:product.template,name:product.product_template_15
 msgid "RAM SR3"
 msgstr "RAM SR3"
 

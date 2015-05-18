@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
 "PO-Revision-Date: 2012-12-27 21:49+0000\n"
 "Last-Translator: gehad shaat <gehad.shaath@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 06:56+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2013-11-21 06:12+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
 
 #. module: hr_payroll
 #: field:hr.payslip.line,condition_select:0
@@ -200,11 +200,11 @@ msgid "Notes"
 msgstr "الملاحظات"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:873
-#: code:addons/hr_payroll/hr_payroll.py:878
-#: code:addons/hr_payroll/hr_payroll.py:884
-#: code:addons/hr_payroll/hr_payroll.py:901
-#: code:addons/hr_payroll/hr_payroll.py:907
+#: code:addons/hr_payroll/hr_payroll.py:871
+#: code:addons/hr_payroll/hr_payroll.py:876
+#: code:addons/hr_payroll/hr_payroll.py:882
+#: code:addons/hr_payroll/hr_payroll.py:899
+#: code:addons/hr_payroll/hr_payroll.py:905
 #, python-format
 msgid "Error!"
 msgstr "خطأ!"
@@ -247,6 +247,12 @@ msgid "Contribution Register's Payslip Lines"
 msgstr ""
 
 #. module: hr_payroll
+#: code:addons/hr_payroll/wizard/hr_payroll_payslips_by_employees.py:52
+#, python-format
+msgid "Warning !"
+msgstr "تحذير !"
+
+#. module: hr_payroll
 #: report:paylip.details:0
 msgid "Details by Salary Rule Category:"
 msgstr "تفاصيل حسب تصنيف قواعد الراتب:"
@@ -271,7 +277,7 @@ msgid "Draft Slip"
 msgstr "مسودة ظرف المرتب"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:433
+#: code:addons/hr_payroll/hr_payroll.py:432
 #, python-format
 msgid "Normal Working Days paid at 100%"
 msgstr "أيام العمل العادية المدفوعة بنسبة 100٪"
@@ -475,7 +481,7 @@ msgid "Salary Rules"
 msgstr "قانون الأجور"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:342
+#: code:addons/hr_payroll/hr_payroll.py:341
 #, python-format
 msgid "Refund: "
 msgstr "استرداد: "
@@ -507,8 +513,7 @@ msgid "Fixed Amount"
 msgstr "مبلغ ثابت"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:371
-#: code:addons/hr_payroll/wizard/hr_payroll_payslips_by_employees.py:52
+#: code:addons/hr_payroll/hr_payroll.py:370
 #, python-format
 msgid "Warning!"
 msgstr ""
@@ -649,7 +654,7 @@ msgid "Computation"
 msgstr "أحسب/حساب"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:901
+#: code:addons/hr_payroll/hr_payroll.py:899
 #, python-format
 msgid "Wrong range condition defined for salary rule %s (%s)."
 msgstr ""
@@ -689,7 +694,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:878
+#: code:addons/hr_payroll/hr_payroll.py:876
 #, python-format
 msgid "Wrong percentage base or quantity defined for salary rule %s (%s)."
 msgstr ""
@@ -747,7 +752,7 @@ msgid "Percentage (%)"
 msgstr "النسبة المئوية (%)"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:873
+#: code:addons/hr_payroll/hr_payroll.py:871
 #, python-format
 msgid "Wrong quantity defined for salary rule %s (%s)."
 msgstr ""
@@ -860,7 +865,7 @@ msgid "Contribution"
 msgstr "المشاركة"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:352
+#: code:addons/hr_payroll/hr_payroll.py:351
 #, python-format
 msgid "Refund Payslip"
 msgstr ""
@@ -927,7 +932,7 @@ msgid "General"
 msgstr "عام"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:676
+#: code:addons/hr_payroll/hr_payroll.py:674
 #, python-format
 msgid "Salary Slip of %s for %s"
 msgstr ""
@@ -1074,7 +1079,7 @@ msgid "PaySlip Lines By Conribution Register"
 msgstr ""
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:371
+#: code:addons/hr_payroll/hr_payroll.py:370
 #, python-format
 msgid "You cannot delete a payslip which is not draft or cancelled!"
 msgstr ""
@@ -1181,7 +1186,7 @@ msgid "Salary Rule Categories Hierarchy"
 msgstr ""
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:884
+#: code:addons/hr_payroll/hr_payroll.py:882
 #, python-format
 msgid "Wrong python code defined for salary rule %s (%s)."
 msgstr ""
@@ -1212,7 +1217,7 @@ msgid "The code that can be used in the salary rules"
 msgstr "الرمز الذي يمكن استخدامه في قواعد الراتب"
 
 #. module: hr_payroll
-#: code:addons/hr_payroll/hr_payroll.py:907
+#: code:addons/hr_payroll/hr_payroll.py:905
 #, python-format
 msgid "Wrong python condition defined for salary rule %s (%s)."
 msgstr ""
@@ -1257,7 +1262,3 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "إلغاء"
-
-#, python-format
-#~ msgid "Warning !"
-#~ msgstr "تحذير !"

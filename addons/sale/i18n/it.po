@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
 "PO-Revision-Date: 2013-06-28 12:20+0000\n"
 "Last-Translator: electro <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 07:21+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2013-11-21 06:33+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
 
 #. module: sale
 #: model:ir.model,name:sale.model_account_config_settings
@@ -56,13 +56,13 @@ msgid "Cancel Order"
 msgstr "Annulla Ordine"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:102
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:101
 #, python-format
 msgid "Incorrect Data"
 msgstr "Dati Errati"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:103
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:102
 #, python-format
 msgid "The value of Advance Amount must be positive."
 msgstr "Il valore di Totale Acconto deve essere positivo."
@@ -76,11 +76,6 @@ msgstr "Permette di applicare alcuni sconti per linea di ordine di vendita."
 #: help:sale.order,message_unread:0
 msgid "If checked new messages require your attention."
 msgstr "Se selezionato, nuovi messaggi richiedono la tua attenzione"
-
-#. module: sale
-#: report:sale.order:0
-msgid "VAT"
-msgstr "IVA"
 
 #. module: sale
 #: view:res.partner:0
@@ -132,6 +127,12 @@ msgid "# of Qty"
 msgstr "Q.tà"
 
 #. module: sale
+#: code:addons/sale/sale.py:444
+#, python-format
+msgid "Customer Invoices"
+msgstr "Fatture Clienti"
+
+#. module: sale
 #: model:ir.model,name:sale.model_res_partner
 #: view:sale.report:0
 #: field:sale.report,partner_id:0
@@ -174,7 +175,7 @@ msgid "Disc.(%)"
 msgstr "Sconto (%)"
 
 #. module: sale
-#: code:addons/sale/sale.py:770
+#: code:addons/sale/sale.py:764
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d)."
 msgstr "Definire un conto di ricavo per questo prodotto: \"%s\" (id:%d)."
@@ -234,9 +235,9 @@ msgid "Other Information"
 msgstr "Altre informazioni"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_line_invoice.py:106
-#: code:addons/sale/wizard/sale_make_invoice.py:43
-#: code:addons/sale/wizard/sale_make_invoice.py:57
+#: code:addons/sale/wizard/sale_line_invoice.py:107
+#: code:addons/sale/wizard/sale_make_invoice.py:42
+#: code:addons/sale/wizard/sale_make_invoice.py:55
 #, python-format
 msgid "Warning!"
 msgstr "Attenzione!"
@@ -271,7 +272,7 @@ msgid "Sales Make Invoice"
 msgstr "Crea fattura di vendita"
 
 #. module: sale
-#: code:addons/sale/sale.py:309
+#: code:addons/sale/sale.py:307
 #, python-format
 msgid "Pricelist Warning!"
 msgstr "Avviso Listino!"
@@ -303,7 +304,7 @@ msgid "Shop Name"
 msgstr "Nome Negozio"
 
 #. module: sale
-#: code:addons/sale/sale.py:604
+#: code:addons/sale/sale.py:598
 #, python-format
 msgid "You cannot confirm a sales order which has no line."
 msgstr "Non è possibile confermare un ordine di vendita che non ha righe."
@@ -338,7 +339,7 @@ msgid "Quotation "
 msgstr "Preventivo "
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:107
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:106
 #, python-format
 msgid "Advance of %s %%"
 msgstr "Anticipo su %s %%"
@@ -428,8 +429,8 @@ msgid "View Invoice"
 msgstr "Visualizza Fattura"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:114
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:116
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:113
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:115
 #, python-format
 msgid "Advance of %s %s"
 msgstr "Anticipo su %s %s"
@@ -511,7 +512,7 @@ msgid "Sales Order Lines ready to be invoiced"
 msgstr "Righe degli Ordini di vendita pronte per essere fatturate"
 
 #. module: sale
-#: code:addons/sale/sale.py:310
+#: code:addons/sale/sale.py:308
 #, python-format
 msgid ""
 "If you change the pricelist of this order (and eventually the currency), "
@@ -524,13 +525,6 @@ msgstr ""
 #: report:sale.order:0
 msgid "Tel. :"
 msgstr "Tel. :"
-
-#. module: sale
-#: model:email.template,subject:sale.email_template_edi_sale
-msgid ""
-"${object.company_id.name|safe} ${object.state in ('draft', 'sent') and "
-"'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
-msgstr ""
 
 #. module: sale
 #: help:sale.order,partner_invoice_id:0
@@ -548,7 +542,7 @@ msgid "Before Delivery"
 msgstr "Prima della Consegna"
 
 #. module: sale
-#: code:addons/sale/sale.py:787
+#: code:addons/sale/sale.py:781
 #, python-format
 msgid ""
 "There is no Fiscal Position defined or Income category account defined for "
@@ -568,7 +562,7 @@ msgid "Ordered month of the sales order"
 msgstr "Mese dell'ordine di vendita"
 
 #. module: sale
-#: code:addons/sale/sale.py:507
+#: code:addons/sale/sale.py:505
 #, python-format
 msgid ""
 "You cannot group sales having different currencies for the same partner."
@@ -595,7 +589,7 @@ msgid "Invoiced"
 msgstr "Fatturato"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:203
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:202
 #, python-format
 msgid "Advance Invoice"
 msgstr "Fattura di acconto"
@@ -779,16 +773,16 @@ msgstr ""
 "vendita relativo."
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:93
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:92
 #, python-format
 msgid "There is no income account defined as global property."
 msgstr ""
 "Non esiste nessun conto di ricavo configurato come proprietà globale."
 
 #. module: sale
-#: code:addons/sale/sale.py:966
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:92
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:96
+#: code:addons/sale/sale.py:960
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:91
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:95
 #, python-format
 msgid "Configuration Error!"
 msgstr "Errore di configurazione!"
@@ -804,7 +798,7 @@ msgid "Send by Email"
 msgstr "Invia tramite Email"
 
 #. module: sale
-#: code:addons/sale/res_config.py:98
+#: code:addons/sale/res_config.py:97
 #, python-format
 msgid "Hour"
 msgstr "Ora"
@@ -835,7 +829,7 @@ msgid "Currency"
 msgstr "Valuta"
 
 #. module: sale
-#: code:addons/sale/sale.py:948
+#: code:addons/sale/sale.py:942
 #, python-format
 msgid ""
 "You have to select a pricelist or a customer in the sales form !\n"
@@ -851,7 +845,7 @@ msgid "Category of Product"
 msgstr "Categoria prodotto"
 
 #. module: sale
-#: code:addons/sale/sale.py:570
+#: code:addons/sale/sale.py:564
 #, python-format
 msgid "Cannot cancel this sales order!"
 msgstr "Impossibile annullare l'ordine di vendita!"
@@ -865,13 +859,6 @@ msgstr "Ricrea Fattura"
 #: report:sale.order:0
 msgid "Taxes :"
 msgstr "Imposte :"
-
-#. module: sale
-#: code:addons/sale/sale.py:279
-#, python-format
-msgid ""
-"In order to delete a confirmed sales order, you must cancel it before!"
-msgstr ""
 
 #. module: sale
 #: model:ir.actions.act_window,help:sale.act_res_partner_2_sale_order
@@ -973,7 +960,7 @@ msgstr ""
 "corriere."
 
 #. module: sale
-#: code:addons/sale/sale.py:961
+#: code:addons/sale/sale.py:955
 #, python-format
 msgid "No valid pricelist line found ! :"
 msgstr "Nessun listino valido trovato!:"
@@ -1023,7 +1010,7 @@ msgid "Order Reference must be unique per Company!"
 msgstr "Il Riferimento Ordine deve essere unico per azienda!"
 
 #. module: sale
-#: code:addons/sale/sale.py:958
+#: code:addons/sale/sale.py:952
 #, python-format
 msgid ""
 "Cannot find a pricelist line matching this product and quantity.\n"
@@ -1058,6 +1045,15 @@ msgstr ""
 "Consente di creare Preventivi e Ordini di Vendita usando differenti "
 "politiche e gestirne le relative giacenze.\n"
 "                    Installa il modulo sale_stock."
+
+#. module: sale
+#: model:email.template,subject:sale.email_template_edi_sale
+msgid ""
+"${object.company_id.name} ${object.state in ('draft', 'sent') and "
+"'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
+msgstr ""
+"${object.company_id.name} ${object.state in ('draft', 'sent') and "
+"'Preventivo' or 'Ordine'} (Ref ${object.name or 'n/a' })"
 
 #. module: sale
 #: report:sale.order:0
@@ -1120,7 +1116,7 @@ msgid "# of Sales Order"
 msgstr "# dell'Ordine di Vendita"
 
 #. module: sale
-#: code:addons/sale/sale.py:989
+#: code:addons/sale/sale.py:983
 #, python-format
 msgid "Cannot delete a sales order line which is in state '%s'."
 msgstr "Impossibile eliminare un ordine di vendita in stato '%s'."
@@ -1131,7 +1127,7 @@ msgid "Properties on lines"
 msgstr "Proprietà sulle righe"
 
 #. module: sale
-#: code:addons/sale/sale.py:871
+#: code:addons/sale/sale.py:865
 #, python-format
 msgid ""
 "Before choosing a product,\n"
@@ -1146,7 +1142,7 @@ msgid "Total Tax Included"
 msgstr "Totale (tasse incluse)"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice.py:43
+#: code:addons/sale/wizard/sale_make_invoice.py:42
 #, python-format
 msgid "You cannot create invoice when sales order is not confirmed."
 msgstr "Non puoi creare una fattura per un ordine di vendita non confermato"
@@ -1155,12 +1151,6 @@ msgstr "Non puoi creare una fattura per un ordine di vendita non confermato"
 #: view:sale.report:0
 msgid "Ordered date of the sales order"
 msgstr "Data dell'ordine di vendita"
-
-#. module: sale
-#: code:addons/sale/sale.py:871
-#, python-format
-msgid "No Customer Defined!"
-msgstr ""
 
 #. module: sale
 #: model:process.transition,name:sale.process_transition_confirmquotation0
@@ -1265,9 +1255,9 @@ msgid "Create Invoices"
 msgstr "Crea fatture"
 
 #. module: sale
-#: code:addons/sale/sale.py:279
-#: code:addons/sale/sale.py:826
-#: code:addons/sale/sale.py:989
+#: code:addons/sale/sale.py:277
+#: code:addons/sale/sale.py:820
+#: code:addons/sale/sale.py:983
 #, python-format
 msgid "Invalid Action!"
 msgstr "Azione non valida!"
@@ -1438,17 +1428,20 @@ msgid "Use pricelists to adapt your price per customers"
 msgstr "Usa i listini per gestire i prezzi ai clienti"
 
 #. module: sale
-#: code:addons/sale/sale.py:187
+#: code:addons/sale/sale.py:185
 #, python-format
 msgid "There is no default shop for the current user's company!"
 msgstr ""
 "Non esiste un negozio predefinito per gli utenti della azienda corrente!"
 
 #. module: sale
-#: code:addons/sale/sale.py:446
+#: code:addons/sale/sale.py:277
 #, python-format
-msgid "Customer Invoices"
-msgstr "Fatture Clienti"
+msgid ""
+"In order to delete a confirmed sales order, you must cancel it before !"
+msgstr ""
+"Per eliminare un ordine di vendita confermato, è necessario prima annullarlo "
+"!"
 
 #. module: sale
 #: model:ir.actions.act_window,name:sale.open_board_sales
@@ -1489,7 +1482,7 @@ msgid "Done"
 msgstr "Completato"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_line_invoice.py:120
+#: code:addons/sale/wizard/sale_line_invoice.py:121
 #: model:ir.model,name:sale.model_account_invoice
 #: model:process.node,name:sale.process_node_invoice0
 #: view:sale.order:0
@@ -1784,7 +1777,7 @@ msgid "Date on which sales order is confirmed."
 msgstr "Data nella quale l'ordine di vendita viene confermato."
 
 #. module: sale
-#: code:addons/sale/sale.py:571
+#: code:addons/sale/sale.py:565
 #, python-format
 msgid "First cancel all invoices attached to this sales order."
 msgstr "Cancellare prima tutte le fatture legate a questo ordine di vendita."
@@ -1813,6 +1806,12 @@ msgstr "Il totale da fatturare in anticipo."
 #: selection:sale.report,state:0
 msgid "Invoice Exception"
 msgstr "Eccezione Fattura"
+
+#. module: sale
+#: code:addons/sale/sale.py:865
+#, python-format
+msgid "No Customer Defined !"
+msgstr "Nessun cliente definito!"
 
 #. module: sale
 #: field:sale.order,partner_shipping_id:0
@@ -1845,12 +1844,12 @@ msgid "Project"
 msgstr "Progetto"
 
 #. module: sale
-#: code:addons/sale/sale.py:187
-#: code:addons/sale/sale.py:365
-#: code:addons/sale/sale.py:506
-#: code:addons/sale/sale.py:604
-#: code:addons/sale/sale.py:769
-#: code:addons/sale/sale.py:786
+#: code:addons/sale/sale.py:185
+#: code:addons/sale/sale.py:363
+#: code:addons/sale/sale.py:504
+#: code:addons/sale/sale.py:598
+#: code:addons/sale/sale.py:763
+#: code:addons/sale/sale.py:780
 #, python-format
 msgid "Error!"
 msgstr "Errore!"
@@ -1907,7 +1906,7 @@ msgid "Date Confirm"
 msgstr "Data conferma"
 
 #. module: sale
-#: code:addons/sale/sale.py:366
+#: code:addons/sale/sale.py:364
 #, python-format
 msgid "Please define sales journal for this company: \"%s\" (id:%d)."
 msgstr "Definire il sezionale vendite per questa azienda: \"%s\" (id:%d)."
@@ -1918,8 +1917,8 @@ msgid "Contract Features"
 msgstr "Caratteristiche Contratto"
 
 #. module: sale
-#: code:addons/sale/sale.py:289
-#: code:addons/sale/sale.py:590
+#: code:addons/sale/sale.py:287
+#: code:addons/sale/sale.py:584
 #: model:ir.model,name:sale.model_sale_order
 #: model:process.node,name:sale.process_node_order0
 #: model:process.node,name:sale.process_node_saleorder0
@@ -1952,7 +1951,7 @@ msgid "Confirm"
 msgstr "Conferma"
 
 #. module: sale
-#: code:addons/sale/sale.py:826
+#: code:addons/sale/sale.py:820
 #, python-format
 msgid "You cannot cancel a sales order line that has already been invoiced."
 msgstr ""
@@ -2013,7 +2012,7 @@ msgid "Sales order lines done"
 msgstr "Righe completate dell'ordine di vendita"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_line_invoice.py:106
+#: code:addons/sale/wizard/sale_line_invoice.py:107
 #, python-format
 msgid ""
 "Invoice cannot be created for this Sales Order Line due to one of the "
@@ -2042,7 +2041,7 @@ msgid "December"
 msgstr "Dicembre"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:97
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:96
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)."
 msgstr ""
@@ -2079,7 +2078,7 @@ msgid "June"
 msgstr "Giugno"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice.py:57
+#: code:addons/sale/wizard/sale_make_invoice.py:55
 #, python-format
 msgid "You shouldn't manually invoice the following sale order %s"
 msgstr "Non dovresti fatturare manualmente il seguente ordine di vendita %s"
@@ -2191,7 +2190,7 @@ msgid "from stock"
 msgstr "da Stock"
 
 #. module: sale
-#: code:addons/sale/sale.py:950
+#: code:addons/sale/sale.py:944
 #, python-format
 msgid "No Pricelist ! : "
 msgstr "Nessun Listino!: "
@@ -2329,23 +2328,5 @@ msgstr "Prelevato"
 msgid "Year"
 msgstr "Anno"
 
-#, python-format
-#~ msgid "No Customer Defined !"
-#~ msgstr "Nessun cliente definito!"
-
-#~ msgid ""
-#~ "${object.company_id.name} ${object.state in ('draft', 'sent') and "
-#~ "'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
-#~ msgstr ""
-#~ "${object.company_id.name} ${object.state in ('draft', 'sent') and "
-#~ "'Preventivo' or 'Ordine'} (Ref ${object.name or 'n/a' })"
-
 #~ msgid "Quotation send"
 #~ msgstr "Preventivo inviato"
-
-#, python-format
-#~ msgid ""
-#~ "In order to delete a confirmed sales order, you must cancel it before !"
-#~ msgstr ""
-#~ "Per eliminare un ordine di vendita confermato, è necessario prima annullarlo "
-#~ "!"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2014-01-07 16:56+0000\n"
 "PO-Revision-Date: 2014-04-01 14:20+0000\n"
 "Last-Translator: hiro TAKADA <tkhiro0712@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 06:45+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-04-02 06:44+0000\n"
+"X-Generator: Launchpad (build 16967)\n"
 
 #. module: crm
 #: view:crm.lead.report:0
@@ -152,7 +152,7 @@ msgid "Rule Name"
 msgstr "ルール名"
 
 #. module: crm
-#: code:addons/crm/crm_phonecall.py:283
+#: code:addons/crm/crm_phonecall.py:282
 #, python-format
 msgid "It's only possible to convert one phonecall at a time."
 msgstr ""
@@ -189,7 +189,7 @@ msgstr ""
 #. module: crm
 #: code:addons/crm/crm_lead.py:637
 #: code:addons/crm/crm_lead.py:758
-#: code:addons/crm/crm_phonecall.py:283
+#: code:addons/crm/crm_phonecall.py:282
 #: code:addons/crm/wizard/crm_lead_to_opportunity.py:92
 #, python-format
 msgid "Warning!"
@@ -217,7 +217,7 @@ msgid "Schedule Other Call"
 msgstr "他の電話をスケジュール"
 
 #. module: crm
-#: code:addons/crm/crm_phonecall.py:212
+#: code:addons/crm/crm_phonecall.py:211
 #: view:crm.phonecall:0
 #, python-format
 msgid "Phone Call"
@@ -252,11 +252,6 @@ msgstr "基準"
 #: view:crm.lead:0
 msgid "Assigned to My Team(s)"
 msgstr ""
-
-#. module: crm
-#: view:crm.segmentation:0
-msgid "Excluded Answers :"
-msgstr "回答を除く"
 
 #. module: crm
 #: model:ir.model,name:crm.model_crm_merge_opportunity
@@ -300,7 +295,7 @@ msgid "Prospect Partner"
 msgstr "予想パートナ"
 
 #. module: crm
-#: code:addons/crm/crm_lead.py:1021
+#: code:addons/crm/crm_lead.py:1018
 #, python-format
 msgid "No Subject"
 msgstr "無題"
@@ -398,7 +393,6 @@ msgid "Unread Messages"
 msgstr ""
 
 #. module: crm
-#: view:crm.segmentation:0
 #: field:crm.segmentation.line,segmentation_id:0
 #: model:ir.actions.act_window,name:crm.crm_segmentation-act
 msgid "Segmentation"
@@ -525,7 +519,7 @@ msgid "Planned Revenue"
 msgstr "計画売上高"
 
 #. module: crm
-#: code:addons/crm/crm_lead.py:1007
+#: code:addons/crm/crm_lead.py:1004
 #, python-format
 msgid "Customer Email"
 msgstr ""
@@ -543,9 +537,9 @@ msgid "October"
 msgstr "10月"
 
 #. module: crm
-#: view:crm.segmentation:0
-msgid "Included Answers :"
-msgstr "回答を含む："
+#: view:crm.phonecall:0
+msgid "Reset to Todo"
+msgstr "ToDoにリセット"
 
 #. module: crm
 #: help:crm.phonecall,state:0
@@ -593,11 +587,6 @@ msgid ""
 "No customer name defined. Please fill one of the following fields: Company "
 "Name, Contact Name or Email (\"Name <email@address>\")"
 msgstr ""
-
-#. module: crm
-#: view:crm.segmentation:0
-msgid "Profiling Options"
-msgstr "プロファイリングオプション"
 
 #. module: crm
 #: view:crm.phonecall.report:0
@@ -675,7 +664,7 @@ msgid "Partner Segmentation"
 msgstr "パートナの分類"
 
 #. module: crm
-#: code:addons/crm/crm_lead.py:1067
+#: code:addons/crm/crm_lead.py:1064
 #, python-format
 msgid "Logged a call for %(date)s. %(description)s"
 msgstr ""
@@ -1260,7 +1249,7 @@ msgid "Days to Close"
 msgstr "終了日"
 
 #. module: crm
-#: code:addons/crm/crm_lead.py:1078
+#: code:addons/crm/crm_lead.py:1075
 #: field:crm.case.section,complete_name:0
 #, python-format
 msgid "unknown"
@@ -1335,11 +1324,6 @@ msgid ""
 "Phone Calls Assigned to the current user or with a team having the current "
 "user as team leader"
 msgstr ""
-
-#. module: crm
-#: view:crm.segmentation:0
-msgid "Segmentation Description"
-msgstr "分類の説明"
 
 #. module: crm
 #: code:addons/crm/crm_lead.py:578
@@ -1634,7 +1618,7 @@ msgid "Describe the lead..."
 msgstr "リードを記述してください..."
 
 #. module: crm
-#: code:addons/crm/crm_phonecall.py:293
+#: code:addons/crm/crm_phonecall.py:292
 #, python-format
 msgid "Partner has been <b>created</b>."
 msgstr ""
@@ -1852,7 +1836,7 @@ msgid "Support Department"
 msgstr "サポート部門"
 
 #. module: crm
-#: code:addons/crm/crm_lead.py:1081
+#: code:addons/crm/crm_lead.py:1078
 #, python-format
 msgid "Meeting scheduled at '%s'<br> Subject: %s <br> Duration: %s hour(s)"
 msgstr ""
@@ -2865,6 +2849,7 @@ msgstr "機能"
 #. module: crm
 #: field:crm.case.section,note:0
 #: field:crm.phonecall,description:0
+#: view:crm.segmentation:0
 #: field:crm.segmentation,description:0
 msgid "Description"
 msgstr "詳細"
@@ -2938,12 +2923,7 @@ msgid "Referred By"
 msgstr "紹介者"
 
 #. module: crm
-#: view:crm.phonecall:0
-msgid "Reset to Todo"
-msgstr "ToDoにリセット"
-
-#. module: crm
-#: code:addons/crm/crm_lead.py:1069
+#: code:addons/crm/crm_lead.py:1066
 #, python-format
 msgid "Scheduled a call for %(date)s. %(description)s"
 msgstr ""
@@ -2954,7 +2934,7 @@ msgid "Working Hours"
 msgstr "労働時間"
 
 #. module: crm
-#: code:addons/crm/crm_lead.py:1005
+#: code:addons/crm/crm_lead.py:1002
 #: view:crm.lead:0
 #: field:crm.lead2opportunity.partner,partner_id:0
 #: field:crm.lead2opportunity.partner.mass,partner_id:0
@@ -3019,11 +2999,6 @@ msgstr "4月"
 #: field:crm.case.resource.type,name:0
 msgid "Campaign Name"
 msgstr "キャンペーン名"
-
-#. module: crm
-#: view:crm.segmentation:0
-msgid "Profiling"
-msgstr "プロファイリング"
 
 #. module: crm
 #: model:ir.model,name:crm.model_crm_phonecall_report
@@ -3095,6 +3070,12 @@ msgstr ""
 #~ msgid "Warning !"
 #~ msgstr "警告"
 
+#~ msgid "Excluded Answers :"
+#~ msgstr "回答を除く"
+
+#~ msgid "Included Answers :"
+#~ msgstr "回答を含む："
+
 #~ msgid "Exp.Closing"
 #~ msgstr "見込完了"
 
@@ -3103,8 +3084,14 @@ msgstr ""
 #~ "unsubscribed to a campaign."
 #~ msgstr "オプトアウトをチェックした場合、この連絡先はEメールの受信を拒否するか、またはキャンペーンには未参加となります。"
 
+#~ msgid "Profiling Options"
+#~ msgstr "プロファイリングオプション"
+
 #~ msgid "New Leads"
 #~ msgstr "新規リード"
+
+#~ msgid "Segmentation Description"
+#~ msgstr "分類の説明"
 
 #~ msgid "Unassigned Opportunities"
 #~ msgstr "未割当の商談"
@@ -3114,3 +3101,6 @@ msgstr ""
 
 #~ msgid "Create date"
 #~ msgstr "作成日"
+
+#~ msgid "Profiling"
+#~ msgstr "プロファイリング"

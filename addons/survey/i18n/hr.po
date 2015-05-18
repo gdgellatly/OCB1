@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:11+0000\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
 "PO-Revision-Date: 2013-01-15 17:45+0000\n"
 "Last-Translator: Goran Kliska <gkliska@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 07:29+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2013-11-21 06:38+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
 
 #. module: survey
 #: view:survey.response.line:0
@@ -23,7 +23,7 @@ msgid "Single Textboxes"
 msgstr ""
 
 #. module: survey
-#: code:addons/survey/survey.py:472
+#: code:addons/survey/survey.py:471
 #, python-format
 msgid ""
 "Minimum Required Answer you                                     entered is "
@@ -111,11 +111,6 @@ msgid "Date started"
 msgstr "Datum početka"
 
 #. module: survey
-#: field:survey.response.answer,value_choice:0
-msgid "Value Choice"
-msgstr "Value Choice"
-
-#. module: survey
 #: field:survey,history:0
 msgid "History Lines"
 msgstr "Povijesni niz"
@@ -182,13 +177,7 @@ msgid "Add Comment Field"
 msgstr "Dodaj polje za komentar"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:238
-#, python-format
-msgid "Status :- "
-msgstr ""
-
-#. module: survey
-#: code:addons/survey/survey.py:451
+#: code:addons/survey/survey.py:450
 #, python-format
 msgid ""
 "#Required Answer you entered                                     is greater "
@@ -215,7 +204,7 @@ msgid "survey.name.wiz"
 msgstr "survey.name.wiz"
 
 #. module: survey
-#: code:addons/survey/survey.py:484
+#: code:addons/survey/survey.py:483
 #, python-format
 msgid ""
 "Maximum Required Answer you                                     entered for "
@@ -238,7 +227,7 @@ msgid "Send Reminder for Existing User"
 msgstr "Pošalji podsjetnik postojećem korisniku"
 
 #. module: survey
-#: code:addons/survey/survey.py:526
+#: code:addons/survey/survey.py:525
 #, python-format
 msgid ""
 "Maximum Required Answer you entered for your maximum is greater than the "
@@ -338,8 +327,8 @@ msgid "Rating Scale"
 msgstr "Rating Scale"
 
 #. module: survey
-#: code:addons/survey/survey.py:153
-#: code:addons/survey/survey.py:188
+#: code:addons/survey/survey.py:152
+#: code:addons/survey/survey.py:187
 #, python-format
 msgid ""
 "This survey has no question defined. Please define the questions and answers "
@@ -362,7 +351,7 @@ msgid "Survey Open Date"
 msgstr "Datum otvaranja upitnika"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:804
+#: code:addons/survey/wizard/survey_answer.py:800
 #, python-format
 msgid "You cannot select the same answer more than one time."
 msgstr ""
@@ -383,8 +372,8 @@ msgid "Edit Survey"
 msgstr "Edit Survey"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:770
-#: code:addons/survey/wizard/survey_answer.py:965
+#: code:addons/survey/wizard/survey_answer.py:766
+#: code:addons/survey/wizard/survey_answer.py:961
 #, python-format
 msgid "Please enter an integer value."
 msgstr "Upišite cjelobrojnu vrijednost."
@@ -395,7 +384,7 @@ msgid "Menu Choice"
 msgstr "Menu Choice"
 
 #. module: survey
-#: code:addons/survey/survey.py:494
+#: code:addons/survey/survey.py:493
 #, python-format
 msgid ""
 "You must enter one or more menu choices                                 in "
@@ -412,12 +401,6 @@ msgstr "At Most"
 #: view:survey.request:0
 msgid "My Survey(s)"
 msgstr "Moji upitnici"
-
-#. module: survey
-#: code:addons/survey/report/survey_browse_response.py:219
-#, python-format
-msgid "Answered by : "
-msgstr ""
 
 #. module: survey
 #: view:survey.response.line:0
@@ -453,10 +436,9 @@ msgid "Text"
 msgstr "Tekst"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:396
-#, python-format
-msgid "Exit"
-msgstr ""
+#: view:survey:0
+msgid "Edit..."
+msgstr "Uredi ..."
 
 #. module: survey
 #: selection:survey.print,paper_size:0
@@ -476,10 +458,10 @@ msgid "survey.request"
 msgstr "survey.request"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:379
-#, python-format
-msgid "Previous"
-msgstr ""
+#: field:survey.send.invitation,mail_subject:0
+#: field:survey.send.invitation,mail_subject_existing:0
+msgid "Subject"
+msgstr "Predmet"
 
 #. module: survey
 #: field:survey.question,comment_maximum_float:0
@@ -515,7 +497,7 @@ msgid "Don't Validate Comment Text."
 msgstr "Don't Validate Comment Text."
 
 #. module: survey
-#: code:addons/survey/survey.py:533
+#: code:addons/survey/survey.py:532
 #, python-format
 msgid "You must enter one or more menu choices in column heading."
 msgstr ""
@@ -541,10 +523,9 @@ msgid "Search Survey Page"
 msgstr "Search Survey Page"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:380
-#, python-format
-msgid "Next"
-msgstr ""
+#: field:survey.question.wiz,name:0
+msgid "Number"
+msgstr "Broj"
 
 #. module: survey
 #: view:survey.request:0
@@ -552,9 +533,9 @@ msgid "Evaluation Plan Phase"
 msgstr "Faza plana ocjenjivanja"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_send_invitation.py:178
-#: code:addons/survey/wizard/survey_send_invitation.py:191
-#: code:addons/survey/wizard/survey_send_invitation.py:194
+#: code:addons/survey/wizard/survey_send_invitation.py:185
+#: code:addons/survey/wizard/survey_send_invitation.py:196
+#: code:addons/survey/wizard/survey_send_invitation.py:199
 #, python-format
 msgid "Unknown"
 msgstr "Nepoznato"
@@ -603,24 +584,14 @@ msgid "Required Answer"
 msgstr "Zahtjevani odgovor"
 
 #. module: survey
-#: code:addons/survey/survey.py:425
-#: code:addons/survey/survey.py:513
-#, python-format
-msgid ""
-"You must enter one or more column headings for question \"%s\" of page %s."
-msgstr ""
-
-#. module: survey
-#: code:addons/survey/survey.py:97
-#: code:addons/survey/survey.py:260
+#: code:addons/survey/survey.py:96
+#: code:addons/survey/survey.py:259
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (kopija)"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:231
 #: selection:survey.response,state:0
-#, python-format
 msgid "Not Finished"
 msgstr "Nije završeno"
 
@@ -635,7 +606,7 @@ msgid "Select Partner"
 msgstr "Odaberi partnera"
 
 #. module: survey
-#: code:addons/survey/survey.py:528
+#: code:addons/survey/survey.py:527
 #, python-format
 msgid "Maximum Required Answer is greater than Minimum Required Answer."
 msgstr ""
@@ -654,12 +625,6 @@ msgstr "Odgovori"
 #: selection:survey.response,response_type:0
 msgid "Link"
 msgstr "Veza"
-
-#. module: survey
-#: code:addons/survey/wizard/survey_answer.py:178
-#, python-format
-msgid "Answer Of :- "
-msgstr ""
 
 #. module: survey
 #: model:ir.actions.act_window,name:survey.action_survey_type_form
@@ -694,7 +659,7 @@ msgid "Error Message"
 msgstr "Error Message"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:125
+#: code:addons/survey/wizard/survey_answer.py:124
 #, python-format
 msgid "You cannot answer this survey more than %s times."
 msgstr ""
@@ -741,18 +706,17 @@ msgid "Survey Requests"
 msgstr "Zahtjevi upitnika"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:74
-#, python-format
-msgid "Page : "
-msgstr ""
+#: model:ir.model,name:survey.model_survey_browse_answer
+msgid "survey.browse.answer"
+msgstr "survey.browse.answer"
 
 #. module: survey
-#: view:survey:0
-msgid "Edit..."
-msgstr "Uredi ..."
+#: selection:survey.question,comment_field_type:0
+msgid "Paragraph of Text"
+msgstr "Odlomak teksta"
 
 #. module: survey
-#: code:addons/survey/survey.py:478
+#: code:addons/survey/survey.py:477
 #, python-format
 msgid ""
 "Maximum Required Answer you                                     entered for "
@@ -783,7 +747,7 @@ msgid "Options"
 msgstr "Options"
 
 #. module: survey
-#: code:addons/survey/survey.py:437
+#: code:addons/survey/survey.py:436
 #, python-format
 msgid "You must enter one or more Answers for question \"%s\" of page %s."
 msgstr ""
@@ -887,9 +851,11 @@ msgstr ""
 "Postavite na jedan ukoliko vam je potrebna samo jedan odgovor po korisniku"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:179
+#: code:addons/survey/survey.py:424
+#: code:addons/survey/survey.py:512
 #, python-format
-msgid " Answer :- "
+msgid ""
+"You must enter one or more column headings for question \"%s\" of page %s."
 msgstr ""
 
 #. module: survey
@@ -904,13 +870,7 @@ msgid "Message"
 msgstr "Poruka"
 
 #. module: survey
-#: field:survey.send.invitation,mail_subject:0
-#: field:survey.send.invitation,mail_subject_existing:0
-msgid "Subject"
-msgstr "Predmet"
-
-#. module: survey
-#: code:addons/survey/survey.py:498
+#: code:addons/survey/survey.py:497
 #, python-format
 msgid ""
 "You must enter one or more menu                                 choices in "
@@ -959,11 +919,6 @@ msgid "When the choices do not add up correctly, display this error message"
 msgstr "Kod neispravnog odabira opcija prikaži ovu poruku"
 
 #. module: survey
-#: field:survey,date_close:0
-msgid "Survey Close Date"
-msgstr "Datum zatvaranja Upitnika"
-
-#. module: survey
 #: model:ir.actions.act_window,help:survey.action_survey_form1
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -980,9 +935,9 @@ msgid ""
 msgstr ""
 
 #. module: survey
-#: selection:survey.question,comment_field_type:0
-msgid "Paragraph of Text"
-msgstr "Odlomak teksta"
+#: field:survey,date_close:0
+msgid "Survey Close Date"
+msgstr "Datum zatvaranja Upitnika"
 
 #. module: survey
 #: field:survey.question.column.heading,in_visible_rating_weight:0
@@ -999,14 +954,6 @@ msgstr "Validate Text"
 #: view:survey.name.wiz:0
 msgid "Start"
 msgstr "Start"
-
-#. module: survey
-#: code:addons/survey/wizard/survey_selection.py:83
-#, python-format
-msgid ""
-"You cannot give more responses. Please contact the author of this survey for "
-"further assistance."
-msgstr ""
 
 #. module: survey
 #: field:survey.question,comment_maximum_no:0
@@ -1036,7 +983,6 @@ msgid "Matrix of Drop-down Menus"
 msgstr "Matrix of Drop-down Menus"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:226
 #: view:survey:0
 #: field:survey.answer,answer:0
 #: field:survey.name.wiz,response:0
@@ -1055,7 +1001,6 @@ msgstr "Matrix of Drop-down Menus"
 #: field:survey.response.line,response_table_ids:0
 #: field:survey.send.invitation,partner_ids:0
 #: field:survey.tbl.column.heading,response_table_id:0
-#, python-format
 msgid "Answer"
 msgstr "Odgovor"
 
@@ -1075,9 +1020,11 @@ msgid "Store Answer"
 msgstr "Spremi odgovor"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:216
+#: code:addons/survey/wizard/survey_selection.py:83
 #, python-format
-msgid "Print Date : "
+msgid ""
+"You cannot give more responses. Please contact the author of this survey for "
+"further assistance."
 msgstr ""
 
 #. module: survey
@@ -1101,10 +1048,9 @@ msgid "Print Survey"
 msgstr "Print Survey"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:309
-#, python-format
-msgid "No Answer"
-msgstr ""
+#: field:survey.response.answer,value_choice:0
+msgid "Value Choice"
+msgstr "Value Choice"
 
 #. module: survey
 #: field:survey.response,response_type:0
@@ -1224,9 +1170,11 @@ msgid "Skiped"
 msgstr "Preskočen"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:996
+#: code:addons/survey/survey.py:534
 #, python-format
-msgid "You cannot select same answer more than one time.'"
+msgid ""
+"You must enter one or more menu choices in column heading (white spaces not "
+"allowed)."
 msgstr ""
 
 #. module: survey
@@ -1247,23 +1195,12 @@ msgid "Browse Answers"
 msgstr "Pregled odgovora"
 
 #. module: survey
-#: model:ir.model,name:survey.model_survey_browse_answer
-msgid "survey.browse.answer"
-msgstr "survey.browse.answer"
-
-#. module: survey
 #: model:ir.model,name:survey.model_survey_response_line
 msgid "Survey Response Line"
 msgstr "Survey Response Line"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:226
-#, python-format
-msgid "Answer Date : "
-msgstr ""
-
-#. module: survey
-#: code:addons/survey/survey.py:170
+#: code:addons/survey/survey.py:169
 #, python-format
 msgid "This survey has no pages defined. Please define pages first."
 msgstr ""
@@ -1371,10 +1308,8 @@ msgid "Field Label"
 msgstr "Labela polja"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:382
 #: view:survey.request:0
 #: selection:survey.request,state:0
-#, python-format
 msgid "Done"
 msgstr "Izvršeno"
 
@@ -1416,7 +1351,7 @@ msgid "Open"
 msgstr "Otvoreno"
 
 #. module: survey
-#: code:addons/survey/survey.py:509
+#: code:addons/survey/survey.py:508
 #, python-format
 msgid "You must enter one or more answers for question \"%s\" of page %s ."
 msgstr ""
@@ -1427,13 +1362,7 @@ msgid "Total Started Survey"
 msgstr "Ukupno aktivnih upitnika"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:178
-#, python-format
-msgid ",  Date :- "
-msgstr ""
-
-#. module: survey
-#: code:addons/survey/survey.py:518
+#: code:addons/survey/survey.py:517
 #, python-format
 msgid ""
 "#Required Answer you entered is greater than the number of answer. Please "
@@ -1490,7 +1419,7 @@ msgid "Email Notification on Answer"
 msgstr ""
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:449
+#: code:addons/survey/wizard/survey_answer.py:445
 #, python-format
 msgid "Complete Survey Answer"
 msgstr "Odgovor na anketno pitanje"
@@ -1520,14 +1449,6 @@ msgstr "Poslan poziv"
 #: code:addons/survey/wizard/survey_selection.py:80
 #, python-format
 msgid "You cannot give response for this survey more than %s times."
-msgstr ""
-
-#. module: survey
-#: code:addons/survey/survey.py:535
-#, python-format
-msgid ""
-"You must enter one or more menu choices in column heading (white spaces not "
-"allowed)."
 msgstr ""
 
 #. module: survey
@@ -1590,19 +1511,19 @@ msgid "Supplier Selection"
 msgstr ""
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:232
+#: code:addons/survey/wizard/survey_answer.py:992
 #, python-format
-msgid "Finished"
+msgid "You cannot select same answer more than one time.'"
 msgstr ""
 
 #. module: survey
-#: code:addons/survey/survey.py:691
+#: code:addons/survey/survey.py:685
 #, python-format
 msgid "You cannot duplicate the resource!"
 msgstr "Ne možete duplicirati resurs !"
 
 #. module: survey
-#: code:addons/survey/survey.py:524
+#: code:addons/survey/survey.py:523
 #, python-format
 msgid ""
 "Minimum Required Answer you entered is greater than the number of answer. "
@@ -1610,11 +1531,6 @@ msgid ""
 msgstr ""
 "Minimum Required Answer you entered is greater than the number of answer. "
 "Please use a number that is smaller than %d."
-
-#. module: survey
-#: field:survey.question.wiz,name:0
-msgid "Number"
-msgstr "Broj"
 
 #. module: survey
 #: view:survey:0
@@ -1633,18 +1549,12 @@ msgid "Surveys Answers"
 msgstr "Odgovori na upitnike"
 
 #. module: survey
-#: code:addons/survey/report/survey_browse_response.py:249
-#, python-format
-msgid "Page :- "
-msgstr ""
-
-#. module: survey
 #: model:ir.actions.act_window,name:survey.act_survey_pages
 msgid "Pages"
 msgstr "Pages"
 
 #. module: survey
-#: code:addons/survey/survey.py:456
+#: code:addons/survey/survey.py:455
 #, python-format
 msgid ""
 "#Required Answer you entered is                                     greater "
@@ -1695,49 +1605,49 @@ msgid "Error message"
 msgstr "Error message"
 
 #. module: survey
-#: code:addons/survey/survey.py:153
-#: code:addons/survey/survey.py:170
-#: code:addons/survey/survey.py:188
-#: code:addons/survey/survey.py:425
-#: code:addons/survey/survey.py:437
-#: code:addons/survey/survey.py:451
-#: code:addons/survey/survey.py:456
-#: code:addons/survey/survey.py:466
-#: code:addons/survey/survey.py:472
-#: code:addons/survey/survey.py:478
-#: code:addons/survey/survey.py:484
-#: code:addons/survey/survey.py:488
-#: code:addons/survey/survey.py:494
-#: code:addons/survey/survey.py:498
-#: code:addons/survey/survey.py:509
-#: code:addons/survey/survey.py:513
-#: code:addons/survey/survey.py:518
-#: code:addons/survey/survey.py:524
-#: code:addons/survey/survey.py:526
-#: code:addons/survey/survey.py:528
-#: code:addons/survey/survey.py:533
-#: code:addons/survey/survey.py:535
-#: code:addons/survey/survey.py:691
-#: code:addons/survey/wizard/survey_answer.py:118
-#: code:addons/survey/wizard/survey_answer.py:125
-#: code:addons/survey/wizard/survey_answer.py:711
-#: code:addons/survey/wizard/survey_answer.py:750
-#: code:addons/survey/wizard/survey_answer.py:770
-#: code:addons/survey/wizard/survey_answer.py:799
-#: code:addons/survey/wizard/survey_answer.py:804
-#: code:addons/survey/wizard/survey_answer.py:812
-#: code:addons/survey/wizard/survey_answer.py:823
-#: code:addons/survey/wizard/survey_answer.py:832
-#: code:addons/survey/wizard/survey_answer.py:837
-#: code:addons/survey/wizard/survey_answer.py:911
-#: code:addons/survey/wizard/survey_answer.py:947
-#: code:addons/survey/wizard/survey_answer.py:965
-#: code:addons/survey/wizard/survey_answer.py:993
-#: code:addons/survey/wizard/survey_answer.py:996
-#: code:addons/survey/wizard/survey_answer.py:999
-#: code:addons/survey/wizard/survey_answer.py:1011
-#: code:addons/survey/wizard/survey_answer.py:1018
-#: code:addons/survey/wizard/survey_answer.py:1021
+#: code:addons/survey/survey.py:152
+#: code:addons/survey/survey.py:169
+#: code:addons/survey/survey.py:187
+#: code:addons/survey/survey.py:424
+#: code:addons/survey/survey.py:436
+#: code:addons/survey/survey.py:450
+#: code:addons/survey/survey.py:455
+#: code:addons/survey/survey.py:465
+#: code:addons/survey/survey.py:471
+#: code:addons/survey/survey.py:477
+#: code:addons/survey/survey.py:483
+#: code:addons/survey/survey.py:487
+#: code:addons/survey/survey.py:493
+#: code:addons/survey/survey.py:497
+#: code:addons/survey/survey.py:508
+#: code:addons/survey/survey.py:512
+#: code:addons/survey/survey.py:517
+#: code:addons/survey/survey.py:523
+#: code:addons/survey/survey.py:525
+#: code:addons/survey/survey.py:527
+#: code:addons/survey/survey.py:532
+#: code:addons/survey/survey.py:534
+#: code:addons/survey/survey.py:685
+#: code:addons/survey/wizard/survey_answer.py:117
+#: code:addons/survey/wizard/survey_answer.py:124
+#: code:addons/survey/wizard/survey_answer.py:707
+#: code:addons/survey/wizard/survey_answer.py:746
+#: code:addons/survey/wizard/survey_answer.py:766
+#: code:addons/survey/wizard/survey_answer.py:795
+#: code:addons/survey/wizard/survey_answer.py:800
+#: code:addons/survey/wizard/survey_answer.py:808
+#: code:addons/survey/wizard/survey_answer.py:819
+#: code:addons/survey/wizard/survey_answer.py:828
+#: code:addons/survey/wizard/survey_answer.py:833
+#: code:addons/survey/wizard/survey_answer.py:907
+#: code:addons/survey/wizard/survey_answer.py:943
+#: code:addons/survey/wizard/survey_answer.py:961
+#: code:addons/survey/wizard/survey_answer.py:989
+#: code:addons/survey/wizard/survey_answer.py:992
+#: code:addons/survey/wizard/survey_answer.py:995
+#: code:addons/survey/wizard/survey_answer.py:1007
+#: code:addons/survey/wizard/survey_answer.py:1014
+#: code:addons/survey/wizard/survey_answer.py:1017
 #: code:addons/survey/wizard/survey_selection.py:80
 #: code:addons/survey/wizard/survey_selection.py:83
 #: code:addons/survey/wizard/survey_send_invitation.py:71
@@ -1746,7 +1656,7 @@ msgid "Warning!"
 msgstr "Upozorenje!"
 
 #. module: survey
-#: code:addons/survey/survey.py:466
+#: code:addons/survey/survey.py:465
 #, python-format
 msgid ""
 "Minimum Required Answer                                     you entered is "
@@ -1768,7 +1678,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: survey
-#: code:addons/survey/survey.py:488
+#: code:addons/survey/survey.py:487
 #, python-format
 msgid ""
 "Maximum Required Answer is greater                                     than "
@@ -1819,14 +1729,12 @@ msgid "Float"
 msgstr "Decimalni"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:395
 #: view:survey.browse.answer:0
 #: view:survey.name.wiz:0
 #: view:survey.print:0
 #: view:survey.print.answer:0
 #: view:survey.print.statistics:0
 #: view:survey.send.invitation:0
-#, python-format
 msgid "or"
 msgstr "ili"
 
@@ -1881,7 +1789,7 @@ msgid "Table"
 msgstr "Table"
 
 #. module: survey
-#: code:addons/survey/wizard/survey_answer.py:118
+#: code:addons/survey/wizard/survey_answer.py:117
 #, python-format
 msgid "You cannot answer because the survey is not open."
 msgstr ""

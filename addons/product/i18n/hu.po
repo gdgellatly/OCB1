@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
 "PO-Revision-Date: 2013-10-12 10:44+0000\n"
 "Last-Translator: krnkris <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 07:12+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2013-11-21 06:26+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
 
 #. module: product
 #: field:product.packaging,rows:0
@@ -39,7 +39,6 @@ msgstr "A főszállítótól beszerezhető minimum mennyiség."
 
 #. module: product
 #: model:product.template,name:product.product_product_34_product_template
-#: model:product.template,name:product.product_template_34
 msgid "Webcam"
 msgstr "Webkamera"
 
@@ -79,7 +78,6 @@ msgstr "Állandó"
 
 #. module: product
 #: model:product.template,name:product.product_product_10_product_template
-#: model:product.template,name:product.product_template_10
 msgid "Mouse, Optical"
 msgstr "Egér, optikai"
 
@@ -101,7 +99,6 @@ msgstr "Alapár a vásárlói ár számításához. Sokszor listaárnak nevezik.
 
 #. module: product
 #: model:product.template,name:product.product_product_3_product_template
-#: model:product.template,name:product.product_template_3
 msgid "PC Assemble SC234"
 msgstr "PC Assemble SC234"
 
@@ -115,7 +112,7 @@ msgstr ""
 "direkt HTML formátumú ahhoz hogy beilleszthető legyen a kanban nézetekbe."
 
 #. module: product
-#: code:addons/product/pricelist.py:198
+#: code:addons/product/pricelist.py:179
 #: code:addons/product/product.py:208
 #, python-format
 msgid "Warning!"
@@ -158,7 +155,6 @@ msgstr "Árlista"
 
 #. module: product
 #: model:product.template,name:product.product_product_4_product_template
-#: model:product.template,name:product.product_template_4
 msgid "PC Assemble SC349"
 msgstr "PC összeszerelés SC349"
 
@@ -218,7 +214,6 @@ msgstr "Főkategória"
 
 #. module: product
 #: model:product.template,description:product.product_product_33_product_template
-#: model:product.template,description:product.product_template_33
 msgid "Headset for laptop PC with USB connector."
 msgstr "USB csatlakozós fülhalgató hordozható számítógéphez."
 
@@ -266,7 +261,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_42_product_template
-#: model:product.template,description_sale:product.product_template_42
 msgid ""
 "Office Editing Software with word processing, spreadsheets, presentations, "
 "graphics, and databases..."
@@ -305,7 +299,6 @@ msgstr "Kategória"
 
 #. module: product
 #: model:product.template,name:product.product_product_25_product_template
-#: model:product.template,name:product.product_template_25
 msgid "Laptop E5023"
 msgstr "Laptop E5023"
 
@@ -321,7 +314,6 @@ msgstr "Csomagok száma rétegek szerint"
 
 #. module: product
 #: model:product.template,name:product.product_product_30_product_template
-#: model:product.template,name:product.product_template_30
 msgid "Pen drive, SP-4"
 msgstr "Pen drive, SP-4"
 
@@ -332,7 +324,6 @@ msgstr "Mennyiség csomagban"
 
 #. module: product
 #: model:product.template,name:product.product_product_29_product_template
-#: model:product.template,name:product.product_template_29
 msgid "Pen drive, SP-2"
 msgstr "Pen drive, SP-2"
 
@@ -396,7 +387,6 @@ msgstr "Termékmenedzser"
 
 #. module: product
 #: model:product.template,name:product.product_product_7_product_template
-#: model:product.template,name:product.product_template_7
 msgid "17” LCD Monitor"
 msgstr "17” LCD Monitor"
 
@@ -537,7 +527,6 @@ msgstr "Értékesítés és beszerzés"
 
 #. module: product
 #: model:product.template,name:product.product_product_44_product_template
-#: model:product.template,name:product.product_template_44
 msgid "GrapWorks Software"
 msgstr "GrapWorks Software"
 
@@ -548,7 +537,6 @@ msgstr "Munkaidő"
 
 #. module: product
 #: model:product.template,name:product.product_product_42_product_template
-#: model:product.template,name:product.product_template_42
 msgid "Office Suite"
 msgstr "Irodai csomag"
 
@@ -559,7 +547,6 @@ msgstr "Mértékegység típusa"
 
 #. module: product
 #: model:product.template,name:product.product_product_32_product_template
-#: model:product.template,name:product.product_template_32
 msgid "Headset standard"
 msgstr "Szabványos fejhalgató"
 
@@ -636,13 +623,11 @@ msgstr "Beszerzési árlisták"
 
 #. module: product
 #: model:product.template,name:product.product_product_5_product_template
-#: model:product.template,name:product.product_template_5
 msgid "PC Assemble + Custom (PC on Demand)"
 msgstr "PC összeszerelés + Egyedi (PC kérésnek megfelelően)"
 
 #. module: product
 #: model:product.template,description:product.product_product_27_product_template
-#: model:product.template,description:product.product_template_27
 msgid "Custom Laptop based on customer's requirement."
 msgstr "Egyedi laptop a vevő igényei alapján."
 
@@ -659,7 +644,6 @@ msgstr "Mértékegység kategória nem megfelelő!"
 
 #. module: product
 #: model:product.template,name:product.product_product_36_product_template
-#: model:product.template,name:product.product_template_36
 msgid "Blank DVD-RW"
 msgstr "Üres DVD-RW"
 
@@ -708,13 +692,11 @@ msgstr "Min. mennyiség"
 
 #. module: product
 #: model:product.template,name:product.product_product_12_product_template
-#: model:product.template,name:product.product_template_12
 msgid "Mouse, Wireless"
 msgstr "Egér, rádió vezérlésű"
 
 #. module: product
 #: model:product.template,name:product.product_product_22_product_template
-#: model:product.template,name:product.product_template_22
 msgid "Processor Core i5 2.70 Ghz"
 msgstr "Processzor Core i5 2.70 Ghz"
 
@@ -751,13 +733,11 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_18_product_template
-#: model:product.template,name:product.product_template_18
 msgid "HDD SH-2"
 msgstr "HDD SH-2"
 
 #. module: product
 #: model:product.template,name:product.product_product_17_product_template
-#: model:product.template,name:product.product_template_17
 msgid "HDD SH-1"
 msgstr "HDD SH-1"
 
@@ -819,7 +799,6 @@ msgstr "Beszerzés"
 
 #. module: product
 #: model:product.template,name:product.product_product_33_product_template
-#: model:product.template,name:product.product_template_33
 msgid "Headset USB"
 msgstr "Fejhalgató USB"
 
@@ -850,7 +829,6 @@ msgstr "Termék szállítója"
 
 #. module: product
 #: model:product.template,name:product.product_product_28_product_template
-#: model:product.template,name:product.product_template_28
 msgid "External Hard disk"
 msgstr "Külső HD meghajtó"
 
@@ -948,7 +926,6 @@ msgstr "Árkerekítés"
 
 #. module: product
 #: model:product.template,name:product.product_product_1_product_template
-#: model:product.template,name:product.product_template_1
 msgid "On Site Monitoring"
 msgstr "Helyszíni monitoring"
 
@@ -973,7 +950,6 @@ msgstr "Pénznem"
 
 #. module: product
 #: model:product.template,name:product.product_product_46_product_template
-#: model:product.template,name:product.product_template_46
 msgid "Datacard"
 msgstr "Adatkártya"
 
@@ -1000,7 +976,6 @@ msgstr "Beszerzés és helyek"
 
 #. module: product
 #: model:product.template,name:product.product_product_20_product_template
-#: model:product.template,name:product.product_template_20
 msgid "Motherboard I9P57"
 msgstr "Alaplap I9P57"
 
@@ -1083,7 +1058,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_3_product_template
-#: model:product.template,description_sale:product.product_template_3
 msgid ""
 "17\" LCD Monitor\n"
 "Processor AMD 8-Core\n"
@@ -1107,7 +1081,6 @@ msgstr "Kód"
 
 #. module: product
 #: model:product.template,name:product.product_product_27_product_template
-#: model:product.template,name:product.product_template_27
 msgid "Laptop Customized"
 msgstr "Egyedi Laptop"
 
@@ -1118,7 +1091,6 @@ msgstr "Szállítási egység"
 
 #. module: product
 #: model:product.template,name:product.product_product_35_product_template
-#: model:product.template,name:product.product_template_35
 msgid "Blank CD"
 msgstr "Üres CD"
 
@@ -1167,7 +1139,6 @@ msgstr "Visszavonás"
 
 #. module: product
 #: model:product.template,description:product.product_product_37_product_template
-#: model:product.template,description:product.product_template_37
 msgid "All in one hi-speed printer with fax and scanner."
 msgstr "Minden az egyben gyors multifunkciós printer, fax és scanner."
 
@@ -1224,14 +1195,13 @@ msgid "Price Surcharge"
 msgstr "Felár"
 
 #. module: product
-#: code:addons/product/pricelist.py:401
+#: code:addons/product/pricelist.py:380
 #, python-format
 msgid "Supplier Prices on the product form"
 msgstr "Beszállító ára a termék oldalon"
 
 #. module: product
 #: model:product.template,name:product.product_product_8_product_template
-#: model:product.template,name:product.product_template_8
 msgid "USB Keyboard, QWERTY"
 msgstr "USB billentyűzet, QWERTY"
 
@@ -1406,7 +1376,6 @@ msgstr "Termékek"
 
 #. module: product
 #: model:product.template,description:product.product_product_32_product_template
-#: model:product.template,description:product.product_template_32
 msgid ""
 "Hands free headset for laptop PC with in-line microphone and headphone plug."
 msgstr ""
@@ -1473,20 +1442,18 @@ msgid "Supplier Info"
 msgstr "Info a beszállítókról"
 
 #. module: product
-#: code:addons/product/product.py:733
+#: code:addons/product/product.py:732
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (másolat)"
 
 #. module: product
 #: model:product.template,name:product.product_product_2_product_template
-#: model:product.template,name:product.product_template_2
 msgid "On Site Assistance"
 msgstr "Helyszíni segítségnyújtás"
 
 #. module: product
 #: model:product.template,name:product.product_product_39_product_template
-#: model:product.template,name:product.product_template_39
 msgid "Toner Cartridge"
 msgstr "Tinta kazetta"
 
@@ -1524,7 +1491,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_43_product_template
-#: model:product.template,name:product.product_template_43
 msgid "Zed+ Antivirus"
 msgstr "Zed+ Antivírus"
 
@@ -1562,7 +1528,6 @@ msgstr "Bruttó súly (kg)"
 
 #. module: product
 #: model:product.template,name:product.product_product_37_product_template
-#: model:product.template,name:product.product_template_37
 msgid "Printer, All-in-one"
 msgstr "Printer, All-in-one, Multifunkciós"
 
@@ -1573,7 +1538,6 @@ msgstr "Beszerzés"
 
 #. module: product
 #: model:product.template,name:product.product_product_23_product_template
-#: model:product.template,name:product.product_template_23
 msgid "Processor AMD 8-Core"
 msgstr "Processzor AMD 8-Core"
 
@@ -1625,7 +1589,6 @@ msgstr "Kezdő dátum"
 
 #. module: product
 #: model:product.template,name:product.product_product_38_product_template
-#: model:product.template,name:product.product_template_38
 msgid "Ink Cartridge"
 msgstr "Tinta patron"
 
@@ -1680,7 +1643,6 @@ msgstr "Termékek árai"
 
 #. module: product
 #: model:product.template,description:product.product_product_26_product_template
-#: model:product.template,description:product.product_template_26
 msgid ""
 "17\" Monitor\n"
 "6GB RAM\n"
@@ -1704,15 +1666,12 @@ msgstr "Fogyasztási termékek"
 
 #. module: product
 #: model:product.template,name:product.product_product_21_product_template
-#: model:product.template,name:product.product_template_21
 msgid "Motherboard A20Z7"
 msgstr "Alaplap A20Z7"
 
 #. module: product
 #: model:product.template,description:product.product_product_1_product_template
-#: model:product.template,description:product.product_template_1
 #: model:product.template,description_sale:product.product_product_1_product_template
-#: model:product.template,description_sale:product.product_template_1
 msgid "This type of service include basic monitoring of products."
 msgstr ""
 "Ez a típusú szolgáltatás magában foglalja a termék alap "
@@ -1725,7 +1684,6 @@ msgstr "A verzióhoz tartozó utolsó érvényes dátum."
 
 #. module: product
 #: model:product.template,name:product.product_product_19_product_template
-#: model:product.template,name:product.product_template_19
 msgid "HDD on Demand"
 msgstr "HDD erős igénybevételhez"
 
@@ -1760,7 +1718,6 @@ msgstr "Egy mértékegység átváltási aránya nem lehet 0!"
 
 #. module: product
 #: model:product.template,name:product.product_product_24_product_template
-#: model:product.template,name:product.product_template_24
 msgid "Graphics Card"
 msgstr "Videokártya"
 
@@ -1781,7 +1738,6 @@ msgstr "Üres csomag súlya"
 
 #. module: product
 #: model:product.template,name:product.product_product_41_product_template
-#: model:product.template,name:product.product_template_41
 msgid "Windows Home Server 2011"
 msgstr "Oprendszer (pl.Windows 8 Home)"
 
@@ -1792,7 +1748,6 @@ msgstr "Termékmező"
 
 #. module: product
 #: model:product.template,description:product.product_product_5_product_template
-#: model:product.template,description:product.product_template_5
 msgid "Custom computer assembled on order based on customer's requirement."
 msgstr ""
 "Egyedi számítógép összeszerelve a vevői igénylési megrendelés alapján."
@@ -1927,13 +1882,11 @@ msgstr "Termék kategóriánként"
 
 #. module: product
 #: model:product.template,name:product.product_product_16_product_template
-#: model:product.template,name:product.product_template_16
 msgid "Computer Case"
 msgstr "Számítógép ház"
 
 #. module: product
 #: model:product.template,name:product.product_product_9_product_template
-#: model:product.template,name:product.product_template_9
 msgid "USB Keyboard, AZERTY"
 msgstr "USB illentyűzet, AZERTY"
 
@@ -1979,7 +1932,6 @@ msgstr "Doboz 30x40x60"
 
 #. module: product
 #: model:product.template,name:product.product_product_47_product_template
-#: model:product.template,name:product.product_template_47
 msgid "Switch, 24 ports"
 msgstr "24 portos kapcsoló"
 
@@ -2001,7 +1953,6 @@ msgstr "Belső leírás"
 
 #. module: product
 #: model:product.template,name:product.product_product_48_product_template
-#: model:product.template,name:product.product_template_48
 msgid "USB Adapter"
 msgstr "USB Adapter"
 
@@ -2043,7 +1994,6 @@ msgstr "Vállalat"
 
 #. module: product
 #: model:product.template,name:product.product_product_26_product_template
-#: model:product.template,name:product.product_template_26
 msgid "Laptop S3450"
 msgstr "Laptop S3450"
 
@@ -2064,7 +2014,6 @@ msgstr "Egyéb termékek"
 
 #. module: product
 #: model:product.template,description:product.product_product_9_product_template
-#: model:product.template,description:product.product_template_9
 msgid "This product is configured with example of push/pull flows"
 msgstr "Ez a termék példának van telepítve a kihúzás/betét folyamathoz"
 
@@ -2159,13 +2108,11 @@ msgstr "Nyersanyagok"
 
 #. module: product
 #: model:product.template,name:product.product_product_13_product_template
-#: model:product.template,name:product.product_template_13
 msgid "RAM SR5"
 msgstr "RAM SR5"
 
 #. module: product
 #: model:product.template,name:product.product_product_14_product_template
-#: model:product.template,name:product.product_template_14
 msgid "RAM SR2"
 msgstr "RAM SR2"
 
@@ -2207,7 +2154,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_44_product_template
-#: model:product.template,description_sale:product.product_template_44
 msgid "Full featured image editing software."
 msgstr "Teljes értékű képszerkesztő szoftver."
 
@@ -2225,7 +2171,6 @@ msgstr "* ( 1 + "
 
 #. module: product
 #: model:product.template,name:product.product_product_31_product_template
-#: model:product.template,name:product.product_template_31
 msgid "Multimedia Speakers"
 msgstr "Multimedia hangszórók"
 
@@ -2394,7 +2339,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,description:product.product_product_2_product_template
-#: model:product.template,description:product.product_template_2
 msgid ""
 "This type of service include assistance for security questions, system "
 "configuration requirements, implementation or special needs."
@@ -2415,7 +2359,6 @@ msgstr "Mértékegység kategóriák"
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_4_product_template
-#: model:product.template,description_sale:product.product_template_4
 msgid ""
 "19\" LCD Monitor\n"
 "Processor Core i5 2.70 Ghz\n"
@@ -2444,7 +2387,6 @@ msgstr "Belső"
 
 #. module: product
 #: model:product.template,name:product.product_product_45_product_template
-#: model:product.template,name:product.product_template_45
 msgid "Router R430"
 msgstr "Router R430"
 
@@ -2460,7 +2402,7 @@ msgid "Normal"
 msgstr "Normál"
 
 #. module: product
-#: code:addons/product/pricelist.py:198
+#: code:addons/product/pricelist.py:179
 #, python-format
 msgid ""
 "At least one pricelist has no active version !\n"
@@ -2569,7 +2511,6 @@ msgstr "e.g: 1 * (e az egység) = arány * (referencia egység)"
 
 #. module: product
 #: model:product.template,description:product.product_product_25_product_template
-#: model:product.template,description:product.product_template_25
 msgid ""
 "17\" Monitor\n"
 "4GB RAM\n"
@@ -2630,7 +2571,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_11_product_template
-#: model:product.template,name:product.product_template_11
 msgid "Mouse, Laser"
 msgstr "Egér, lézeres"
 
@@ -2687,7 +2627,6 @@ msgstr ""
 
 #. module: product
 #: model:product.template,name:product.product_product_40_product_template
-#: model:product.template,name:product.product_template_40
 msgid "Windows 7 Professional"
 msgstr "Windows 8 Professional"
 
@@ -2713,12 +2652,11 @@ msgstr "Termékváltozat"
 
 #. module: product
 #: model:product.template,name:product.product_product_6_product_template
-#: model:product.template,name:product.product_template_6
 msgid "15” LCD Monitor"
 msgstr "15” LCD Monitor"
 
 #. module: product
-#: code:addons/product/pricelist.py:400
+#: code:addons/product/pricelist.py:379
 #: field:product.pricelist.item,base_pricelist_id:0
 #, python-format
 msgid "Other Pricelist"
@@ -2781,7 +2719,6 @@ msgstr "Termékkategória"
 
 #. module: product
 #: model:product.template,description:product.product_product_19_product_template
-#: model:product.template,description:product.product_template_19
 msgid "On demand hard-disk having capacity based on requirement."
 msgstr "A keresett meghajtó egységnek a kapacitása az igényen alapul."
 
@@ -2792,7 +2729,6 @@ msgstr "Életciklus vége"
 
 #. module: product
 #: model:product.template,name:product.product_product_15_product_template
-#: model:product.template,name:product.product_template_15
 msgid "RAM SR3"
 msgstr "RAM SR3"
 

@@ -1536,10 +1536,8 @@ class account_invoice_line(osv.osv):
         result['name'] = res.partner_ref
 
         result['uos_id'] = uom_id or res.uom_id.id
-        if res.description_sale and type and type.startswith('out_'):
-            result['name'] += '\n'+res.description_sale
-        if res.description_purchase and type and type.startswith('in_'):
-            result['name'] += '\n'+res.description_purchase
+        if res.description:
+            result['name'] += '\n'+res.description
 
         domain = {'uos_id':[('category_id','=',res.uom_id.category_id.id)]}
 
@@ -1715,10 +1713,13 @@ class account_invoice_tax(osv.osv):
         cur_obj = self.pool.get('res.currency')
         company_obj = self.pool.get('res.company')
         company_currency = False
+        factor = 1
+        if ids:
+            factor = self.read(cr, uid, ids[0], ['factor_tax'])['factor_tax']
         if company_id:
             company_currency = company_obj.read(cr, uid, [company_id], ['currency_id'])[0]['currency_id'][0]
         if currency_id and company_currency:
-            amount = cur_obj.compute(cr, uid, currency_id, company_currency, amount, context={'date': date_invoice or fields.date.context_today(self, cr, uid)}, round=False)
+            amount = cur_obj.compute(cr, uid, currency_id, company_currency, amount*factor, context={'date': date_invoice or fields.date.context_today(self, cr, uid)}, round=False)
         return {'value': {'tax_amount': amount}}
 
     _order = 'sequence'

@@ -367,11 +367,6 @@ class datetime(_column):
                               exc_info=True)
         return utc_timestamp
 
-    @classmethod
-    def _as_display_name(cls, field, cr, uid, obj, value, context=None):
-        value = datetime.context_timestamp(cr, uid, DT.datetime.strptime(value, tools.DEFAULT_SERVER_DATETIME_FORMAT), context=context)
-        return tools.ustr(value.strftime(tools.DEFAULT_SERVER_DATETIME_FORMAT))
-
 class binary(_column):
     _type = 'binary'
     _symbol_c = '%s'
@@ -557,7 +552,6 @@ class one2many(_column):
             return
         _table = obj.pool.get(self._obj)._table
         obj = obj.pool.get(self._obj)
-        already_unlinked = set()  # prevent failure for duplicated unlinks
         for act in values:
             if act[0] == 0:
                 act[2][self._fields_id] = id
@@ -566,9 +560,7 @@ class one2many(_column):
             elif act[0] == 1:
                 obj.write(cr, user, [act[1]], act[2], context=context)
             elif act[0] == 2:
-                if act[1] not in already_unlinked:
-                    obj.unlink(cr, user, [act[1]], context=context)
-                    already_unlinked.add(act[1])
+                obj.unlink(cr, user, [act[1]], context=context)
             elif act[0] == 3:
                 reverse_rel = obj._all_columns.get(self._fields_id)
                 assert reverse_rel, 'Trying to unlink the content of a o2m but the pointed model does not have a m2o'

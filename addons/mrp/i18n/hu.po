@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
 "PO-Revision-Date: 2014-01-21 10:29+0000\n"
 "Last-Translator: krnkris <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 07:04+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-01-22 06:13+0000\n"
+"X-Generator: Launchpad (build 16901)\n"
 
 #. module: mrp
 #: help:mrp.bom,message_unread:0
@@ -83,7 +83,7 @@ msgstr ""
 "megrendeléseket hozzon létre, ha a készlet eléri a minimumot."
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:132
+#: code:addons/mrp/report/price.py:130
 #, python-format
 msgid "Hourly Cost"
 msgstr "Óránkénti költség"
@@ -213,12 +213,12 @@ msgid "Order Planning"
 msgstr "Megrendelés tervezése"
 
 #. module: mrp
-#: field:mrp.config.settings,group_mrp_properties:0
-msgid "Allow several bill of materials per product using properties"
-msgstr ""
+#: field:mrp.config.settings,module_mrp_operations:0
+msgid "Allow detailed planning of work order"
+msgstr "Részletes munka megrendelés tervezést engedélyez."
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:666
+#: code:addons/mrp/mrp.py:633
 #, python-format
 msgid "Cannot cancel manufacturing order!"
 msgstr "Nem lehet érvényteleníteni a gyártási megrendelést."
@@ -229,7 +229,7 @@ msgid "Cycle Account"
 msgstr "Munkaciklus gyűjtőkód"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:132
+#: code:addons/mrp/report/price.py:130
 #, python-format
 msgid "Work Cost"
 msgstr "Munkaköltség"
@@ -245,8 +245,6 @@ msgid "Capacity Information"
 msgstr "Kapacitási információ"
 
 #. module: mrp
-#: model:ir.actions.act_window,name:mrp.mrp_workcenter_action
-#: model:ir.ui.menu,name:mrp.menu_view_resource_search_mrp
 #: field:mrp.routing,workcenter_lines:0
 msgid "Work Centers"
 msgstr "Munkaállomások"
@@ -412,7 +410,7 @@ msgid "Reference must be unique per Company!"
 msgstr "Minden vállalkozáshoz egyedi hivatkozás kell!"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:141
+#: code:addons/mrp/report/price.py:139
 #: report:bom.structure:0
 #: view:mrp.bom:0
 #: field:mrp.product_price,number:0
@@ -558,7 +556,7 @@ msgid "Scheduled Date"
 msgstr "Tervezett dátum"
 
 #. module: mrp
-#: code:addons/mrp/procurement.py:121
+#: code:addons/mrp/procurement.py:129
 #, python-format
 msgid "Manufacturing Order <em>%s</em> created."
 msgstr "Gyártási rendelés <em>%s</em> létrehozva."
@@ -756,7 +754,7 @@ msgid "Work Center Load"
 msgstr "Munkaállomás terheltsége"
 
 #. module: mrp
-#: code:addons/mrp/procurement.py:50
+#: code:addons/mrp/procurement.py:55
 #, python-format
 msgid "No BoM defined for this product !"
 msgstr "Az adott termékhez nincsen anyagjegyzék megadva!"
@@ -927,8 +925,8 @@ msgid "A factor of 0.9 means a loss of 10% within the production process."
 msgstr "A 0,9-es érték 10%-os veszteséget jelent a gyártási folyamatban."
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:779
-#: code:addons/mrp/mrp.py:807
+#: code:addons/mrp/mrp.py:737
+#: code:addons/mrp/mrp.py:765
 #, python-format
 msgid "Warning!"
 msgstr "Figyelem!"
@@ -996,7 +994,7 @@ msgid "Manufacturing Orders which are waiting for raw materials."
 msgstr "Gyártáasi rendelések, melyek nyersanyagra várnak."
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:287
+#: code:addons/mrp/mrp.py:285
 #, python-format
 msgid ""
 "The Product Unit of Measure you chose has a different category than in the "
@@ -1090,7 +1088,7 @@ msgid "BoM Type"
 msgstr "Anyagjegyzék tipusa"
 
 #. module: mrp
-#: code:addons/mrp/procurement.py:52
+#: code:addons/mrp/procurement.py:57
 #, python-format
 msgid ""
 "Procurement '%s' has an exception: 'No BoM defined for this product !'"
@@ -1113,7 +1111,7 @@ msgid "Companies"
 msgstr "Vállalatok"
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:667
+#: code:addons/mrp/mrp.py:634
 #, python-format
 msgid ""
 "You must first cancel related internal picking attached to this "
@@ -1128,8 +1126,8 @@ msgid "Minimum Stock"
 msgstr "Minimum készlet"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:162
-#: code:addons/mrp/report/price.py:213
+#: code:addons/mrp/report/price.py:160
+#: code:addons/mrp/report/price.py:211
 #, python-format
 msgid "Total Cost of %s %s"
 msgstr "Teljes költség %s %s"
@@ -1142,7 +1140,7 @@ msgid "Stockable Product"
 msgstr "Készletezhető termék"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:132
+#: code:addons/mrp/report/price.py:130
 #, python-format
 msgid "Work Center name"
 msgstr "Munkaállomás neve"
@@ -1323,7 +1321,7 @@ msgid "Group By..."
 msgstr "Csoportosítás..."
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:132
+#: code:addons/mrp/report/price.py:130
 #, python-format
 msgid "Cycles Cost"
 msgstr "Ciklus költség"
@@ -1351,11 +1349,6 @@ msgid "Resources"
 msgstr "Erőforrások"
 
 #. module: mrp
-#: field:mrp.config.settings,module_mrp_operations:0
-msgid "Allow detailed planning of work orders"
-msgstr ""
-
-#. module: mrp
 #: help:mrp.routing.workcenter,hour_nbr:0
 msgid ""
 "Time in hours for this Work Center to achieve the operation of the specified "
@@ -1370,7 +1363,7 @@ msgid "Analytic Journal"
 msgstr "Analitikus napló"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:141
+#: code:addons/mrp/report/price.py:139
 #, python-format
 msgid "Supplier Price per Unit of Measure"
 msgstr "Beszállítói ár a mértékegységben megadva"
@@ -1455,7 +1448,7 @@ msgstr ""
 "(Munka Állomás) a harmadik  fül automatikusan újra ki lesz előre töltve."
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:519
+#: code:addons/mrp/mrp.py:505
 #, python-format
 msgid "Invalid Action!"
 msgstr "Érvénytelen lépés!"
@@ -1472,7 +1465,7 @@ msgstr ""
 "illetve az egyes termékeknél állítható be."
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:189
+#: code:addons/mrp/report/price.py:187
 #, python-format
 msgid "Components Cost of %s %s"
 msgstr "Összetevő költsége %s %s"
@@ -1503,7 +1496,7 @@ msgstr ""
 "meghatározását."
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:379
+#: code:addons/mrp/mrp.py:375
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (másolat)"
@@ -1514,7 +1507,7 @@ msgid "Production Scheduled Product"
 msgstr "Gyártásra ütemezett termék"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:206
+#: code:addons/mrp/report/price.py:204
 #, python-format
 msgid "Work Cost of %s %s"
 msgstr "Munka költség %s %s"
@@ -1562,7 +1555,7 @@ msgid "Product Cost Structure"
 msgstr "Termék költségszerkezete"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:141
+#: code:addons/mrp/report/price.py:139
 #, python-format
 msgid "Components suppliers"
 msgstr "Hozzávalók beszállítói"
@@ -1692,7 +1685,7 @@ msgid "SO Number"
 msgstr "Értékesítési megbízás száma"
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:519
+#: code:addons/mrp/mrp.py:505
 #, python-format
 msgid "Cannot delete a manufacturing order in state '%s'."
 msgstr "Nem lehet a gyártási megrendelést törölni ezen az állapoton '%s'."
@@ -1729,7 +1722,9 @@ msgid "Manufacturing Orders To Start"
 msgstr "Elkezdésre váró gyártási rendelések"
 
 #. module: mrp
+#: model:ir.actions.act_window,name:mrp.mrp_workcenter_action
 #: model:ir.model,name:mrp.model_mrp_workcenter
+#: model:ir.ui.menu,name:mrp.menu_view_resource_search_mrp
 #: field:mrp.production.workcenter.line,workcenter_id:0
 #: field:mrp.routing.workcenter,workcenter_id:0
 #: view:mrp.workcenter:0
@@ -1978,7 +1973,7 @@ msgstr ""
 "                Ez a mrp_operations modult telepíti."
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:779
+#: code:addons/mrp/mrp.py:737
 #, python-format
 msgid ""
 "You are going to consume total %s quantities of \"%s\".\n"
@@ -2048,7 +2043,7 @@ msgid "Compute Data"
 msgstr "Adatok kiszámítása"
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:630
+#: code:addons/mrp/mrp.py:610
 #: code:addons/mrp/wizard/change_production_qty.py:83
 #: code:addons/mrp/wizard/change_production_qty.py:88
 #, python-format
@@ -2056,9 +2051,8 @@ msgid "Error!"
 msgstr "Hiba!"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:141
+#: code:addons/mrp/report/price.py:139
 #: view:mrp.bom:0
-#: view:product.product:0
 #, python-format
 msgid "Components"
 msgstr "Összetevők"
@@ -2095,7 +2089,7 @@ msgid "Manufacturing Lead Time"
 msgstr "Gyártási átfutási idő"
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:287
+#: code:addons/mrp/mrp.py:285
 #, python-format
 msgid "Warning"
 msgstr "Figyelem"
@@ -2109,11 +2103,6 @@ msgstr "Termék eladási egység mennyisége"
 #: field:mrp.production,move_prod_id:0
 msgid "Product Move"
 msgstr "Termék mozgás"
-
-#. module: mrp
-#: view:mrp.routing:0
-msgid "Operation"
-msgstr ""
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.action_report_in_out_picking_tree
@@ -2307,7 +2296,7 @@ msgid "Assignment from stock."
 msgstr "Ellátás raktárból"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:141
+#: code:addons/mrp/report/price.py:139
 #, python-format
 msgid "Cost Price per Unit of Measure"
 msgstr "Mértékegységenkénti költség ár"
@@ -2335,7 +2324,7 @@ msgid "Manufacturing Steps."
 msgstr "Gyártási lépések"
 
 #. module: mrp
-#: code:addons/mrp/report/price.py:148
+#: code:addons/mrp/report/price.py:146
 #: model:ir.actions.report.xml,name:mrp.report_cost_structure
 #, python-format
 msgid "Cost Structure"
@@ -2362,7 +2351,7 @@ msgid "BOM Ref"
 msgstr "Anyagjegyzék hivatkozás"
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:807
+#: code:addons/mrp/mrp.py:765
 #, python-format
 msgid ""
 "You are going to produce total %s quantities of \"%s\".\n"
@@ -2402,7 +2391,7 @@ msgid "Bill of Materials"
 msgstr "Anyagjegyzékek"
 
 #. module: mrp
-#: code:addons/mrp/mrp.py:630
+#: code:addons/mrp/mrp.py:610
 #, python-format
 msgid "Cannot find a bill of material for this product."
 msgstr "Nem található darabjegyzék ehhez a termékhez."
@@ -2424,6 +2413,7 @@ msgid "Manage manual picking to fulfill manufacturing orders "
 msgstr "Kézi kiválasztás kezelése a gyártások kiszolgállásához "
 
 #. module: mrp
+#: view:mrp.routing.workcenter:0
 #: view:mrp.workcenter:0
 msgid "General Information"
 msgstr "Általános információ"
@@ -2544,6 +2534,12 @@ msgstr ""
 "                        megrendelés"
 
 #. module: mrp
+#: field:mrp.config.settings,group_mrp_properties:0
+msgid "Allow several bill of materials per products using properties"
+msgstr ""
+"A tulajdonságok használatával termékenként több darabjegyzék engedélyezése"
+
+#. module: mrp
 #: model:ir.actions.act_window,name:mrp.mrp_property_group_action
 #: model:ir.ui.menu,name:mrp.menu_mrp_property_group_action
 msgid "Property Groups"
@@ -2649,10 +2645,3 @@ msgstr "mrp.config.settings"
 #: report:mrp.production.order:0
 msgid "Products to Consume"
 msgstr "Felhasználandó termékek"
-
-#~ msgid "Allow detailed planning of work order"
-#~ msgstr "Részletes munka megrendelés tervezést engedélyez."
-
-#~ msgid "Allow several bill of materials per products using properties"
-#~ msgstr ""
-#~ "A tulajdonságok használatával termékenként több darabjegyzék engedélyezése"

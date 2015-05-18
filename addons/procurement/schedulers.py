@@ -29,10 +29,6 @@ from openerp.tools.translate import _
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from openerp import tools
 from psycopg2 import OperationalError
-import logging
-
-logger = logging.getLogger(__name__)
-
 
 class procurement_order(osv.osv):
     _inherit = 'procurement.order'
@@ -84,10 +80,7 @@ class procurement_order(osv.osv):
 
                         if use_new_cursor:
                             cr.commit()
-                    except Exception as e:
-                        if not isinstance(e, OperationalError):
-                            logger.warn("Exception in _procure_confirm on "
-                                        "procurement %s: %s", (proc.name, e))
+                    except OperationalError:
                         if use_new_cursor:
                             cr.rollback()
                             continue
@@ -107,10 +100,7 @@ class procurement_order(osv.osv):
 
                         if use_new_cursor:
                             cr.commit()
-                    except Exception as e:
-                        if not isinstance(e, OperationalError):
-                            logger.warn("Exception in _procure_confirm on "
-                                        "procurement %s: %s", (proc.name, e))
+                    except OperationalError:
                         if use_new_cursor:
                             cr.rollback()
                             continue
@@ -278,13 +268,9 @@ class procurement_order(osv.osv):
                                     {'procurement_id': proc_id}, context=context)
                     if use_new_cursor:
                         cr.commit()
-                except Exception as e:
-                    if not isinstance(e, OperationalError):
-                        logger.warn("Exception in _procure_orderpoint_confirm "
-                                    "on orderpoint %s: %s", (op.name, e))
+                except OperationalError:
                     if use_new_cursor:
-                        if isinstance(e, OperationalError):
-                            orderpoint_ids.append(op.id)
+                        orderpoint_ids.append(op.id)
                         cr.rollback()
                         continue
                     else:

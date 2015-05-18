@@ -198,7 +198,7 @@ class ir_sequence(openerp.osv.osv.osv):
                 if new_implementation in ('standard', None):
                     # Implementation has NOT changed.
                     # Only change sequence if really requested.
-                    if values.get('number_next'):
+                    if row['number_next'] != n:
                         self._alter_sequence(cr, row['id'], i, n)
                     else:
                         # Just in case only increment changed

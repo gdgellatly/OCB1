@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-14 00:10+0000\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
 "PO-Revision-Date: 2014-06-26 17:07+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish (Argentina) <es_AR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-14 07:00+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-06-27 07:09+0000\n"
+"X-Generator: Launchpad (build 17077)\n"
 
 #. module: lunch
 #: field:lunch.product,category_id:0
@@ -73,34 +73,34 @@ msgstr "Por Empleado"
 #. module: lunch
 #: field:lunch.alert,friday:0
 msgid "Friday"
-msgstr "Viernes"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.validation:0
 msgid "validate order lines"
-msgstr "validar líneas del pedido"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order.line:0
 msgid "Order lines Tree"
-msgstr "Árbol de Líneas de pedido"
+msgstr ""
 
 #. module: lunch
 #: field:lunch.alert,specific_day:0
 #: field:report.lunch.order.line,day:0
 msgid "Day"
-msgstr "Día"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order.line:0
 #: selection:lunch.order.line,state:0
 msgid "Received"
-msgstr "Recibido"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order.line:0
 msgid "By Supplier"
-msgstr "Por Proveedor"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,help:lunch.action_lunch_order_tree
@@ -121,18 +121,18 @@ msgstr ""
 #. module: lunch
 #: view:lunch.order.line:0
 msgid "Not Received"
-msgstr "No Recibido"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,name:lunch.action_lunch_order_by_supplier_form
 #: model:ir.ui.menu,name:lunch.menu_lunch_control_suppliers
 msgid "Orders by Supplier"
-msgstr "Pedidos por Proveedor"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.validation:0
 msgid "Receive Meals"
-msgstr "Recibir Comidas"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.cashmove:0
@@ -155,146 +155,145 @@ msgstr ""
 #. module: lunch
 #: field:lunch.cashmove,amount:0
 msgid "Amount"
-msgstr "Monto"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,name:lunch.action_lunch_products
 #: model:ir.ui.menu,name:lunch.menu_lunch_products
 #: field:lunch.order,order_line_ids:0
 msgid "Products"
-msgstr "Productos"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order.line:0
 msgid "By Date"
-msgstr "Por Fecha"
+msgstr ""
 
 #. module: lunch
 #: selection:lunch.order,state:0
 #: view:lunch.order.line:0
 #: selection:lunch.order.line,state:0
 msgid "Cancelled"
-msgstr "Cancelada"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.cashmove:0
 msgid "lunch employee payment"
-msgstr "pago de comida del empleado"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.alert:0
 msgid "alert tree"
-msgstr "árbol de alerta"
+msgstr ""
 
 #. module: lunch
 #: model:ir.model,name:lunch.model_report_lunch_order_line
 msgid "Lunch Orders Statistics"
-msgstr "Estadísticas de Pedidos de Comida"
+msgstr ""
 
 #. module: lunch
 #: model:ir.model,name:lunch.model_lunch_alert
 msgid "Lunch Alert"
-msgstr "Alerta de Comida"
+msgstr ""
 
 #. module: lunch
-#: code:addons/lunch/lunch.py:193
+#: code:addons/lunch/lunch.py:183
 #, python-format
 msgid "Select a product and put your order comments on the note."
 msgstr ""
-"Seleccione un producto y ponga los comentarios del pedido en la nota."
 
 #. module: lunch
 #: selection:lunch.alert,alter_type:0
 msgid "Every Week"
-msgstr "Cada Semana"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,name:lunch.action_lunch_cashmove
 msgid "Register Cash Moves"
-msgstr "Registrar Movimientos de Caja"
+msgstr ""
 
 #. module: lunch
 #: selection:lunch.order,state:0
 msgid "Confirmed"
-msgstr "Confirmada"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order:0
 msgid "lunch orders"
-msgstr "pedidos de comida"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order.line:0
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,name:lunch.action_lunch_cashmove_form
 msgid "Your Account"
-msgstr "Su cuenta"
+msgstr ""
 
 #. module: lunch
 #: model:ir.ui.menu,name:lunch.menu_lunch_cashmove_form
 msgid "Your Lunch Account"
-msgstr "Su Cuenta de Comida"
+msgstr ""
 
 #. module: lunch
 #: field:lunch.alert,active_from:0
 msgid "Between"
-msgstr "Entre"
+msgstr ""
 
 #. module: lunch
 #: model:ir.model,name:lunch.model_lunch_order_order
 msgid "Wizard to order a meal"
-msgstr "Asistente para pedir una comida"
+msgstr ""
 
 #. module: lunch
 #: selection:lunch.order,state:0
 #: selection:lunch.order.line,state:0
 msgid "New"
-msgstr "Nuevo"
+msgstr ""
 
 #. module: lunch
-#: code:addons/lunch/lunch.py:190
+#: code:addons/lunch/lunch.py:180
 #, python-format
 msgid "This is the first time you order a meal"
-msgstr "Ésta es la primera vez que pide una comida"
+msgstr ""
 
 #. module: lunch
 #: field:report.lunch.order.line,price_total:0
 msgid "Total Price"
-msgstr "Precio Total"
+msgstr ""
 
 #. module: lunch
 #: model:ir.model,name:lunch.model_lunch_validation
 msgid "lunch validation for order"
-msgstr "validación de la comida para el pedido"
+msgstr ""
 
 #. module: lunch
 #: report:lunch.order.line:0
 msgid "Name/Date"
-msgstr "Nombre/Fecha"
+msgstr ""
 
 #. module: lunch
 #: report:lunch.order.line:0
 msgid "Total :"
-msgstr "Total:"
+msgstr ""
 
 #. module: lunch
 #: selection:report.lunch.order.line,month:0
 msgid "July"
-msgstr "Julio"
+msgstr ""
 
 #. module: lunch
 #: model:ir.ui.menu,name:lunch.menu_lunch_config
 msgid "Configuration"
-msgstr "Configuración"
+msgstr ""
 
 #. module: lunch
 #: field:lunch.order,state:0
 #: field:lunch.order.line,state:0
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.order.order:0
@@ -307,32 +306,32 @@ msgstr ""
 #: model:ir.actions.act_window,name:lunch.action_lunch_control_accounts
 #: model:ir.ui.menu,name:lunch.menu_lunch_control_accounts
 msgid "Control Accounts"
-msgstr "Cuentas de Control"
+msgstr ""
 
 #. module: lunch
 #: selection:lunch.alert,alter_type:0
 msgid "Every Day"
-msgstr "Cada día"
+msgstr ""
 
 #. module: lunch
 #: field:lunch.order.line,cashmove:0
 msgid "Cash Move"
-msgstr "Movimiento de Caja"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,name:lunch.order_order_lines
 msgid "Order meals"
-msgstr "Pedir comidas"
+msgstr ""
 
 #. module: lunch
 #: view:lunch.alert:0
 msgid "Schedule Hour"
-msgstr "Hora Planificada"
+msgstr ""
 
 #. module: lunch
 #: selection:report.lunch.order.line,month:0
 msgid "September"
-msgstr "Septiembre"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,help:lunch.action_lunch_control_suppliers
@@ -358,17 +357,17 @@ msgstr ""
 #. module: lunch
 #: field:lunch.alert,tuesday:0
 msgid "Tuesday"
-msgstr "Martes"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,name:lunch.action_lunch_order_tree
 msgid "Your Orders"
-msgstr "Sus Pedidos"
+msgstr ""
 
 #. module: lunch
 #: field:report.lunch.order.line,month:0
 msgid "Month"
-msgstr "Mes"
+msgstr ""
 
 #. module: lunch
 #: model:ir.actions.act_window,help:lunch.action_lunch_products
@@ -448,7 +447,7 @@ msgid "Note"
 msgstr ""
 
 #. module: lunch
-#: code:addons/lunch/lunch.py:267
+#: code:addons/lunch/lunch.py:257
 #, python-format
 msgid "Add"
 msgstr ""
@@ -692,7 +691,7 @@ msgid ""
 msgstr ""
 
 #. module: lunch
-#: code:addons/lunch/lunch.py:196
+#: code:addons/lunch/lunch.py:186
 #, python-format
 msgid "Your favorite meals will be created based on your last orders."
 msgstr ""
@@ -726,7 +725,7 @@ msgid "Recurrency"
 msgstr ""
 
 #. module: lunch
-#: code:addons/lunch/lunch.py:199
+#: code:addons/lunch/lunch.py:189
 #, python-format
 msgid "Don't forget the alerts displayed in the reddish area"
 msgstr ""
@@ -847,11 +846,9 @@ msgid "Order"
 msgstr ""
 
 #. module: lunch
-#: code:addons/lunch/lunch.py:43
 #: model:ir.actions.report.xml,name:lunch.report_lunch_order
 #: model:ir.model,name:lunch.model_lunch_order
 #: report:lunch.order.line:0
-#, python-format
 msgid "Lunch Order"
 msgstr ""
 
