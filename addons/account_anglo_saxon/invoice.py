@@ -256,6 +256,8 @@ class AccountInvoice(orm.Model):
 
     def _prepare_refund(self, cr, uid, invoice, date=None, period_id=None,
                         description=None, journal_id=None, context=None):
+        if context is None:
+            context = {}
         invoice_data = super(AccountInvoice, self)._prepare_refund(
             cr, uid, invoice, date, period_id, description,
             journal_id, context=context)
@@ -266,10 +268,26 @@ class AccountInvoice(orm.Model):
                     product = self.pool['product.product'].browse(
                         cr, uid, line_dict['product_id'], context=context)
                     fpos = invoice.fiscal_position or False
-                    contra_acc = get_account(
-                        cr, uid, product, 'property_stock_account_output', fpos)
+                    if context.get('price_credit'):
+                        contra_acc = get_account(
+                            cr, uid, product, 'property_account_creditor_price_difference', fpos)
+                        line_dict['product_id'] = False
+                    else:
+                        contra_acc = get_account(
+                            cr, uid, product, 'property_stock_account_output', fpos)
                     if contra_acc:
                         line_dict['account_id'] = contra_acc
         return invoice_data
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
+class AccountInvoiceRefund(orm.TransientModel):
+    """Refunds invoice"""
+    _inherit = "account.invoice.refund"
+
+    def invoice_refund(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        data_refund = self.read(cr, uid, ids, ['filter_refund'],context=context)[0]['filter_refund']
+        if data_refund == 'refund':
+            context.update({'price_credit': True})
+        return super(AccountInvoiceRefund, self).invoice_refund(cr, uid, ids, context=context)
