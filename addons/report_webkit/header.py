@@ -31,26 +31,7 @@
 
 from openerp.osv import fields, osv
 
-class HeaderHTML(osv.osv):
-    """HTML Header allows you to define HTML CSS and Page format"""
-
-    _name = "ir.header_webkit"
-    _columns = {
-        'company_id' : fields.many2one('res.company', 'Company'),
-        'html' : fields.text('webkit header', help="Set Webkit Report Header"),
-        'footer_html' : fields.text('webkit footer', help="Set Webkit Report Footer."),
-        'css' : fields.text('Header CSS'),
-        'name' : fields.char('Name', size=128, required=True),
-        'margin_top' : fields.float('Top Margin (mm)'),
-        'margin_bottom' : fields.float('Bottom Margin (mm)'),
-        'margin_left' : fields.float('Left Margin (mm)'),
-        'margin_right' : fields.float('Right Margin (mm)'),
-        'orientation' : fields.selection(
-                        [('Landscape','Landscape'),('Portrait', 'Portrait')],
-                        'Orientation'
-                        ),
-        'format': fields.selection(
-                [
+PAPER_SIZES = [
                 ('A0' ,'A0  5   841 x 1189 mm'),
                 ('A1' ,'A1  6   594 x 841 mm'),
                 ('A2' ,'A2  7   420 x 594 mm'),
@@ -81,11 +62,34 @@ class HeaderHTML(osv.osv):
                 ('Legal', 'Legal    3   8.5 x 14 inches, 215.9 x 355.6 mm'),
                 ('Letter','Letter 2 8.5 x 11 inches, 215.9 x 279.4 mm'),
                 ('Tabloid', 'Tabloid 29 279.4 x 431.8 mm'),
-                ],
-                'Paper size',
-                required=True,
-                help="Select Proper Paper size"
-        )
+                ('custom', 'Custom Paper Size')
+                ]
+
+
+class HeaderHTML(osv.osv):
+    """HTML Header allows you to define HTML CSS and Page format"""
+
+    _name = "ir.header_webkit"
+    _columns = {
+        'company_id' : fields.many2one('res.company', 'Company'),
+        'html' : fields.text('webkit header', help="Set Webkit Report Header"),
+        'footer_html' : fields.text('webkit footer', help="Set Webkit Report Footer."),
+        'css' : fields.text('Header CSS'),
+        'name' : fields.char('Name', size=128, required=True),
+        'margin_top' : fields.float('Top Margin (mm)'),
+        'margin_bottom' : fields.float('Bottom Margin (mm)'),
+        'margin_left' : fields.float('Left Margin (mm)'),
+        'margin_right' : fields.float('Right Margin (mm)'),
+        'orientation' : fields.selection(
+                        [('Landscape','Landscape'),('Portrait', 'Portrait')],
+                        'Orientation'
+                        ),
+        'format': fields.selection(
+            PAPER_SIZES, 'Paper size', required=True,
+            help="Select Proper Paper size"
+        ),
+        'paper_width': fields.integer('Paper Width (mm)'),
+        'paper_height': fields.integer('Paper Height (mm)'),
     }
 HeaderHTML()
 
