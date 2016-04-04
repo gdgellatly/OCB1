@@ -1533,7 +1533,10 @@ class account_voucher_line(osv.osv):
     def onchange_amount(self, cr, uid, ids, amount, amount_unreconciled, context=None):
         vals = {}
         if amount:
-            vals['reconcile'] = float_compare(amount, amount_unreconciled, precision_digits=2) and False or True
+            if float_compare(amount, amount_unreconciled, precision_digits=2):
+                vals['reconcile'] = False
+            else:
+                vals['reconcile'] = True
         return {'value': vals}
 
     def onchange_move_line_id(self, cr, user, ids, move_line_id, context=None):
