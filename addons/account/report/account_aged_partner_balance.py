@@ -164,10 +164,10 @@ class aged_trial_report(report_sxw.rml_parse, common_report_header):
                 dates_query += ' BETWEEN %s AND %s)'
                 args_list += (form[str(i)]['start'], form[str(i)]['stop'])
             elif form[str(i)]['start']:
-                dates_query += ' > %s)'
+                dates_query += ' >= %s)'
                 args_list += (form[str(i)]['start'],)
             else:
-                dates_query += ' < %s)'
+                dates_query += ' <= %s)'
                 args_list += (form[str(i)]['stop'],)
             args_list += (self.date_from,)
             self.cr.execute('''SELECT l.partner_id, SUM(l.debit-l.credit), l.reconcile_partial_id
@@ -203,10 +203,8 @@ class aged_trial_report(report_sxw.rml_parse, common_report_header):
 
                         limit_date = 'COALESCE(l.date_maturity,l.date) %s ' '%%s' % '<=' if self.direction_selection == 'past' else '>='
                         self.cr.execute('''SELECT SUM(l.debit-l.credit)
-                                           FROM account_move_line AS l,
-                                           account_move AS am
-                                           WHERE l.move_id = am.id AND
-                                           am.state in %s
+                                           FROM account_move_line AS l, account_move AS am
+                                           WHERE l.move_id = am.id AND am.state in %s
                                            AND l.reconcile_partial_id = %s
                                            AND ''' + limit_date, (tuple(move_state), partner_info[2], self.date_from))
 
