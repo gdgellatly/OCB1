@@ -95,7 +95,6 @@ class aged_trial_report(report_sxw.rml_parse, common_report_header):
         #
         # Build a string like (1,2,3) for easy use in SQL query
         partner_ids = [x['id'] for x in partners]
-        partner_ids = [346]
         if not partner_ids:
             return []
         # This dictionary will store the debit-credit for all partners, using partner_id as key.
