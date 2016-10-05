@@ -90,7 +90,10 @@ class AccountInvoiceLine(osv.osv):
                         total += (stock_move.product_id.standard_price *
                                   stock_move.product_qty) #probably need to convert uoms here
                     total_qty += stock_move.product_qty
-                price = total / total_qty
+                if total and total_qty:
+                    price = total / total_qty
+                else:
+                    price = stock_move.price_unit
 
         elif product.cost_method == 'standard':
             #note this doesn't allow for cost changes between dispatch and invoice
@@ -142,7 +145,7 @@ class AccountInvoiceLine(osv.osv):
         price_diff = (i_line.price_unit * ((100 - i_line.discount)/100)) - price
         decimal_precision = self.pool.get('decimal.precision')
         account_prec = decimal_precision.precision_get(cr, uid, 'Account')
-        if pd_acc and price_diff:
+        if pd_acc and round(price_diff, account_prec):
             #price difference entry
             line.update({'price': round(price * line['quantity'], account_prec),
                          'price_unit': price})
@@ -262,7 +265,7 @@ class AccountInvoice(orm.Model):
             cr, uid, invoice, date, period_id, description,
             journal_id, context=context)
 
-        if invoice.type == 'in_invoice':
+        if invoice.type in ('in_invoice, in_refund'):
             for _, _, line_dict in invoice_data['invoice_line']:
                 if line_dict.get('product_id'):
                     product = self.pool['product.product'].browse(
@@ -272,12 +275,36 @@ class AccountInvoice(orm.Model):
                         contra_acc = get_account(
                             cr, uid, product, 'property_account_creditor_price_difference', fpos)
                         line_dict['product_id'] = False
-                    else:
+                    elif invoice.type == 'in_refund':
                         contra_acc = get_account(
-                            cr, uid, product, 'property_stock_account_output', fpos)
+                            cr, uid, product, 'property_stock_account_input', fpos)
                     if contra_acc:
                         line_dict['account_id'] = contra_acc
         return invoice_data
+
+    def _refund_cleanup_lines(self, cr, uid, lines, context=None):
+        res = super(AccountInvoice, self)._refund_cleanup_lines(
+            cr, uid, lines, context=context)
+        if not lines:
+            return res
+        invoice = lines[0].invoice_id
+        fpos = invoice.fiscal_position or False
+        if invoice.type in ('in_invoice', 'in_refund'):
+            product_obj = self.pool['product.product']
+            for _, _, line in res:
+                if line.get('product_id'):
+                    product = product_obj.browse(
+                        cr, uid, line['product_id'], context=context)
+                    if context.get('price_credit'):
+                        contra_acc = get_account(
+                            cr, uid, product, 'property_account_creditor_price_difference', fpos)
+                        line['product_id'] = False
+                    elif invoice.type == 'in_refund':
+                        contra_acc = get_account(
+                            cr, uid, product, 'property_stock_account_input', fpos)
+                    if contra_acc:
+                        line['account_id'] = contra_acc
+        return res
 
 
 class AccountInvoiceRefund(orm.TransientModel):
@@ -288,6 +315,6 @@ class AccountInvoiceRefund(orm.TransientModel):
         if context is None:
             context = {}
         data_refund = self.read(cr, uid, ids, ['filter_refund'],context=context)[0]['filter_refund']
-        if data_refund == 'refund':
+        if data_refund in ('refund', 'modify'):
             context.update({'price_credit': True})
         return super(AccountInvoiceRefund, self).invoice_refund(cr, uid, ids, context=context)

@@ -49,6 +49,27 @@ class StockPicking(orm.Model):
         return res
 
 
+class StockPickingIn(orm.Model):
+    _inherit = 'stock.picking.in'
+
+    def action_invoice_create(self, cr, uid, ids, journal_id=False,
+                              group=False, type='in_invoice', context=None):
+        picking_obj = self.pool['stock.picking']
+        return picking_obj.action_invoice_create(
+            cr, uid, ids, journal_id=journal_id, group=group, type=type,
+            context=context)
+
+class StockPickingOut(orm.Model):
+    _inherit = 'stock.picking.out'
+
+    def action_invoice_create(self, cr, uid, ids, journal_id=False,
+                              group=False, type='out_invoice',
+                              context=None):
+        picking_obj = self.pool['stock.picking']
+        return picking_obj.action_invoice_create(cr, uid, ids,
+            journal_id=journal_id, group=group, type=type, context=context)
+
+
 class StockMove(orm.Model):
     _inherit = 'stock.move'
 
