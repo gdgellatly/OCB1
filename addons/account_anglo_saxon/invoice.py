@@ -21,7 +21,7 @@
 #
 ##############################################################################
 
-from openerp.osv import osv, orm
+from openerp.osv import osv, orm, fields
 from openerp.tools.float_utils import float_round as round
 
 from openerp import pooler
@@ -42,6 +42,9 @@ def get_account(cr, uid, product, account, fpos=False):
 
 class AccountInvoiceLine(osv.osv):
     _inherit = "account.invoice.line"
+
+    _columns = {'orig_product_id': fields.many2one('product.product',
+                                                   string="Original Product")}
 
     def _get_price(self, cr, uid, inv, i_line, context=None):
         if context is None:
@@ -225,7 +228,7 @@ class AccountInvoiceLine(osv.osv):
                 context = {}
             context.update({'seen': []})
             for i_line in inv.invoice_line:
-                if i_line.product_id:
+                if i_line.product_id or i_line.orig_product_id:
                     in_moves = self._prepare_anglosaxon_in_moves(
                         cr, uid, res, inv, i_line, context=context)
                     if in_moves:
@@ -266,20 +269,20 @@ class AccountInvoice(orm.Model):
             journal_id, context=context)
 
         if invoice.type in ('in_invoice, in_refund'):
-            for _, _, line_dict in invoice_data['invoice_line']:
-                if line_dict.get('product_id'):
+            for _, _, line in invoice_data['invoice_line']:
+                if line.get('product_id'):
                     product = self.pool['product.product'].browse(
-                        cr, uid, line_dict['product_id'], context=context)
+                        cr, uid, line['product_id'], context=context)
                     fpos = invoice.fiscal_position or False
                     if context.get('price_credit'):
                         contra_acc = get_account(
                             cr, uid, product, 'property_account_creditor_price_difference', fpos)
-                        line_dict['product_id'] = False
+                        line['orig_product_id'], line['product_id'] = line['product_id'], False
                     elif invoice.type == 'in_refund':
                         contra_acc = get_account(
                             cr, uid, product, 'property_stock_account_input', fpos)
                     if contra_acc:
-                        line_dict['account_id'] = contra_acc
+                        line['account_id'] = contra_acc
         return invoice_data
 
     def _refund_cleanup_lines(self, cr, uid, lines, context=None):
@@ -298,7 +301,7 @@ class AccountInvoice(orm.Model):
                     if context.get('price_credit'):
                         contra_acc = get_account(
                             cr, uid, product, 'property_account_creditor_price_difference', fpos)
-                        line['product_id'] = False
+                        line['orig_product_id'], line['product_id'] = line['product_id'], False
                     elif invoice.type == 'in_refund':
                         contra_acc = get_account(
                             cr, uid, product, 'property_stock_account_input', fpos)
