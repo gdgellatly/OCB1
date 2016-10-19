@@ -250,8 +250,14 @@ class AccountInvoiceLine(osv.osv):
         if type in ('in_invoice', 'in_refund'):
             product_obj = self.pool['product.product'].browse(
                 cr, uid, product, context=context)
+            # if context.get('picking_ids'):
+            #     account = 'property_account_expense'
+            # else:
             account = 'property_stock_account_input'
-            contra_acc = get_account(cr, uid, product_obj, account)
+            fpos = False
+            if fposition_id:
+                fpos = self.pool['account.fiscal.position'].browse(cr, uid, fposition_id)
+            contra_acc = get_account(cr, uid, product_obj, account, fpos=fpos)
             if contra_acc:
                 res['value'].update({'account_id': contra_acc})
         return res
