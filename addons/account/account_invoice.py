@@ -29,6 +29,7 @@ from openerp import pooler
 from openerp.osv import fields, osv, orm
 from openerp.tools import float_compare
 from openerp.tools.translate import _
+from openerp.tools.float_utils import float_round as round
 
 class account_invoice(osv.osv):
     def _amount_all(self, cr, uid, ids, name, args, context=None):
@@ -1406,8 +1407,9 @@ class account_invoice_line(osv.osv):
         res = {}
         tax_obj = self.pool.get('account.tax')
         cur_obj = self.pool.get('res.currency')
+        precision = self.pool['decimal.precision'].precision_get(cr, uid, 'Product Price')
         for line in self.browse(cr, uid, ids):
-            price = line.price_unit * (1-(line.discount or 0.0)/100.0)
+            price = round(line.price_unit * (1-(line.discount or 0.0)/100.0), precision)
             taxes = tax_obj.compute_all(cr, uid, line.invoice_line_tax_id, price, line.quantity, product=line.product_id, partner=line.invoice_id.partner_id)
             res[line.id] = taxes['total']
             if line.invoice_id:
@@ -1419,11 +1421,12 @@ class account_invoice_line(osv.osv):
         if context is None:
             context = {}
         if context.get('check_total', False):
+            precision = self.pool['decimal.precision'].precision_get(cr, uid, 'Product Price')
             t = context['check_total']
             for l in context.get('invoice_line', {}):
                 if isinstance(l, (list, tuple)) and len(l) >= 3 and l[2]:
                     tax_obj = self.pool.get('account.tax')
-                    p = l[2].get('price_unit', 0) * (1-l[2].get('discount', 0)/100.0)
+                    p = round(l[2].get('price_unit', 0) * (1-l[2].get('discount', 0)/100.0), precision)
                     t = t - (p * l[2].get('quantity'))
                     taxes = l[2].get('invoice_line_tax_id')
                     if len(taxes[0]) >= 3 and taxes[0][2]:
@@ -1591,13 +1594,14 @@ class account_invoice_line(osv.osv):
             context = {}
         inv = self.pool.get('account.invoice').browse(cr, uid, invoice_id, context=context)
         company_currency = self.pool['res.company'].browse(cr, uid, inv.company_id.id).currency_id.id
+        precision = self.pool['decimal.precision'].precision_get(cr, uid, 'Product Price')
         for line in inv.invoice_line:
             mres = self.move_line_get_item(cr, uid, line, context)
             mres['invl_id'] = line.id
             res.append(mres)
             tax_code_found= False
             for tax in tax_obj.compute_all(cr, uid, line.invoice_line_tax_id,
-                    (line.price_unit * (1.0 - (line['discount'] or 0.0) / 100.0)),
+                    round(line.price_unit * (1.0 - (line['discount'] or 0.0) / 100.0), precision),
                     line.quantity, line.product_id,
                     inv.partner_id)['taxes']:
 
@@ -1735,8 +1739,9 @@ class account_invoice_tax(osv.osv):
         inv = self.pool.get('account.invoice').browse(cr, uid, invoice_id, context=context)
         cur = inv.currency_id
         company_currency = self.pool['res.company'].browse(cr, uid, inv.company_id.id).currency_id.id
+        precision = self.pool['decimal.precision'].precision_get(cr, uid, 'Product Price')
         for line in inv.invoice_line:
-            for tax in tax_obj.compute_all(cr, uid, line.invoice_line_tax_id, (line.price_unit* (1-(line.discount or 0.0)/100.0)), line.quantity, line.product_id, inv.partner_id)['taxes']:
+            for tax in tax_obj.compute_all(cr, uid, line.invoice_line_tax_id, round(line.price_unit* (1-(line.discount or 0.0)/100.0), precision), line.quantity, line.product_id, inv.partner_id)['taxes']:
                 val={}
                 val['invoice_id'] = inv.id
                 val['name'] = tax['name']
