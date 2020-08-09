@@ -114,7 +114,7 @@ setuptools.setup(
       dependency_links = ['http://download.gna.org/pychart/'],
       #include_package_data = True,
       install_requires = [
-          'pychart', # not on pypi, use: pip install http://download.gna.org/pychart/PyChart-1.39.tar.gz
+          'python-chart', 
           'babel',
           'docutils',
           'feedparser',
@@ -123,7 +123,7 @@ setuptools.setup(
           'lxml', # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
           'mako',
           'mock',
-          'PIL', # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
+          'pillow', # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
           'psutil', # windows binary code.google.com/p/psutil/downloads/list
           'psycopg2 >= 2.2',
           'pydot',
